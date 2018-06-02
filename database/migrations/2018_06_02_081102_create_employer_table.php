@@ -12,7 +12,8 @@ class CreateEmployerTable extends Migration
      * @return void
      */
     public function up()
-    {
+    {   
+        // Berisi data employers (Register via Web)
         Schema::create('employers', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
