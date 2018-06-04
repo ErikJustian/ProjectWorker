@@ -21,6 +21,7 @@ class CreateJobRequestTable extends Migration
             $table->string('detail');
             $table->integer('salary');
             $table->string('requirement');
+            $table->integer('category_id');
             $table->string('status');
             $table->timestamps();
         });

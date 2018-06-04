@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmployeeRequestTable extends Migration
+class CreateCategoryTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,9 @@ class CreateEmployeeRequestTable extends Migration
      */
     public function up()
     {
-        //table ini berisi request employee terhadap suatu job
-        Schema::create('employee_requests', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('job_id');
-            $table->string('employee');
-            $table->string('status');
-            $table->string('refferal_id')->nullable();
+            $table->string('category_name');
             $table->timestamps();
         });
     }
@@ -31,6 +27,6 @@ class CreateEmployeeRequestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('employee_request');
+        Schema::dropIfExists('category');
     }
 }

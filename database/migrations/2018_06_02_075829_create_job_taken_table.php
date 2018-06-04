@@ -14,13 +14,14 @@ class CreateJobTakenTable extends Migration
     public function up()
     {
         // table ini berisi job yang employee nya sudah ada 
-        Schema::create('job_taken', function (Blueprint $table) {
+        Schema::create('job_takens', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('job_id');
             $table->integer('employee');
-            $table->string('complain');
+            $table->text('complain');
             $table->integer('rating');
             $table->string('status');
+            $table->integer('refferer_id')->nullable();
             $table->timestamps();
         });
     }

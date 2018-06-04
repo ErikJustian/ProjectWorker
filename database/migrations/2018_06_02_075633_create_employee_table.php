@@ -13,7 +13,7 @@ class CreateUserDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('employee', function (Blueprint $table) {
+        Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('fullname');
@@ -21,7 +21,11 @@ class CreateUserDetailTable extends Migration
             $table->string('gender');
             $table->string('phone_number');
             $table->string('job_taken');
+            $table->integer('rating');
             $table->string('success_job');
+            $table->integer('class_id');
+            $table->integer('commission');
+            $table->integer('deposit_tab');
             $table->timestamps();
         });
     }
