@@ -23,6 +23,7 @@ class CreateJobRequestTable extends Migration
             $table->string('requirement');
             $table->integer('category_id');
             $table->string('status');
+            $table->boolean('promoted');
             $table->timestamps();
         });
     }
