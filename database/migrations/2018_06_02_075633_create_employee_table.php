@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUserDetailTable extends Migration
+class CreateEmployeeTable extends Migration
 {
     /**
      * Run the migrations.
@@ -26,6 +26,7 @@ class CreateUserDetailTable extends Migration
             $table->integer('class_id');
             $table->integer('commission');
             $table->integer('deposit_tab');
+            $table->date('due_date');
             $table->timestamps();
         });
     }
