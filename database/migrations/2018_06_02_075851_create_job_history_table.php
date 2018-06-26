@@ -13,7 +13,8 @@ class CreateJobHistoryTable extends Migration
      */
     public function up()
     {
-        Schema::create('job_history', function (Blueprint $table) {
+        //table ini berisi history job yang telah diambil(sepertinya tidak di perlukan)
+        Schema::create('job_histories', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('job_id');
             $table->integer('employee');

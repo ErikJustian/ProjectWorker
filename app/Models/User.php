@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -14,9 +14,6 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -26,4 +23,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+    protected $fillable = ['username','password','role'];
+
+    public function employee() {
+        return $this->hasOne('App\Models\Employee');
+    }
+
+    public function employer() {
+        return $this->hasOne('App\Models\Employee');
+    }
 }

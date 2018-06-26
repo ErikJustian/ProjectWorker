@@ -20,7 +20,7 @@ class CreateEmployerTable extends Migration
             $table->string('type');
             $table->string('name');
             $table->string('job_requested');
-            $table->string('detail');
+            $table->string('detail')->nullable();
             $table->string('phone_number');
             $table->timestamps();
         });
