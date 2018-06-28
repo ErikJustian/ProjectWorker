@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('child');
 });
 
+Route::get('/postjob/', function () {
+    return view('postjob');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
