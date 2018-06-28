@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Auth;
+use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller
@@ -35,5 +37,20 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function username()
+    {
+        return 'username';
+    }
+
+    protected function authenticated()
+    {   
+        if(Auth::user()->role == User::USER_ROLE_EMPLOYER) {
+            return redirect('profile');
+            return 'this is profile direct for employer';
+        } else {
+            return 'this is a profile direct for employee';
+        }
     }
 }

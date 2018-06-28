@@ -20,6 +20,9 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    CONST USER_ROLE_EMPLOYER = 'Employer';
+    CONST USER_ROLE_EMPLOYEE = 'Employee';
     protected $hidden = [
         'password', 'remember_token',
     ];
@@ -30,6 +33,6 @@ class User extends Authenticatable
     }
 
     public function employer() {
-        return $this->hasOne('App\Models\Employee');
+        return $this->hasOne('App\Models\Employer', 'user_id', "id");
     }
 }
