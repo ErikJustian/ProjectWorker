@@ -18,7 +18,7 @@
                   <p class="lead judul">Name</p>
                 </div>
                 <div class="col-md-6">
-                  <p class="lead">Alex</p>
+                  <p class="lead">{{$name}}</p>
                 </div>
               </div>
             </div>
@@ -30,7 +30,7 @@
                   <p class="lead judul">Email</p>
                 </div>
                 <div class="col-md-6">
-                  <p class="lead">LeeLex@gmail.com</p>
+                  <p class="lead">{{$username}}</p>
                 </div>
               </div>
             </div>
@@ -42,7 +42,7 @@
                   <p class="lead judul">Phone</p>
                 </div>
                 <div class="col-md-6">
-                  <p class="lead">08136478455125</p>
+                  <p class="lead">{{$phone_number}}</p>
                 </div>
               </div>
             </div>
@@ -140,3 +140,10 @@
     </div>
   </div>
 @endsection
+@push('scripts')
+<script>
+$(document).ready(function() {
+});
+</script>
+@endpush
+

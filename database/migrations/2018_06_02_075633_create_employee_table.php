@@ -26,7 +26,6 @@ class CreateEmployeeTable extends Migration
             $table->integer('class_id');
             $table->integer('commission');
             $table->integer('deposit_tab');
-            $table->date('due_date');
             $table->timestamps();
         });
     }
@@ -38,6 +37,6 @@ class CreateEmployeeTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_detail');
+        Schema::dropIfExists('employees');
     }
 }

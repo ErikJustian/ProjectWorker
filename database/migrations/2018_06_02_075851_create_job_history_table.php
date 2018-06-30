@@ -29,6 +29,6 @@ class CreateJobHistoryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_history');
+        Schema::dropIfExists('job_histories');
     }
 }

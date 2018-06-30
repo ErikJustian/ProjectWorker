@@ -15,11 +15,25 @@ Route::get('/', function () {
     return view('child');
 });
 
-Route::get('/postjob/', function () {
-    return view('postjob');
-});
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'ProfileController@index')->name('profile');
+Route::group(['middleware' => ['auth']], function () {
+    
+    // Employee
+    Route::middleware(['employee'])->group(function () {
+        Route::prefix('employee')->group(function () {
+            Route::get('/search', 'Employee\SearchController@index');
+            Route::get('/profile', 'ProfileController@indexEmployee');
+        });
+    });
+    
+    // Employer
+    Route::middleware(['employer'])->group(function () {
+        Route::prefix('employer')->group(function () {
+            Route::get('/profile', 'ProfileController@indexEmployer')->name('employerprofile');
+            Route::get('/postjob', 'PostJobController@index')->name('postjobform');
+            Route::post('/postjob', 'PostJobController@post')->name('postjob');
+        });
+    });
+    Route::get('/home', 'HomeController@index')->name('home');
+});

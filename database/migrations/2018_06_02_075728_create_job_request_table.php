@@ -24,6 +24,7 @@ class CreateJobRequestTable extends Migration
             $table->integer('category_id');
             $table->string('status');
             $table->boolean('promoted');
+            $table->date('due_date');
             $table->timestamps();
         });
     }
@@ -35,6 +36,6 @@ class CreateJobRequestTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('job_request');
+        Schema::dropIfExists('job_requests');
     }
 }
