@@ -22,8 +22,8 @@ Route::group(['middleware' => ['auth']], function () {
     // Employee
     Route::middleware(['employee'])->group(function () {
         Route::prefix('employee')->group(function () {
-            Route::get('/search', 'Employee\SearchController@index');
-            Route::get('/profile', 'ProfileController@indexEmployee');
+            Route::get('/search', 'Employee\SearchController@index')->name('search');
+            Route::get('/profile', 'ProfileController@indexEmployee')->name('employeeprofile');
         });
     });
     

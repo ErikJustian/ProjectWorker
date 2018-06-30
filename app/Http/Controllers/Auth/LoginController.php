@@ -47,10 +47,9 @@ class LoginController extends Controller
     protected function authenticated()
     {   
         if(Auth::user()->role == User::USER_ROLE_EMPLOYER) {
-            return redirect('profile');
-            return 'this is profile direct for employer';
+            return redirect('employerprofile');
         } else {
-            return 'this is a profile direct for employee';
+            return redirect('employeeprofile');
         }
     }
 }
