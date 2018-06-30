@@ -53,6 +53,7 @@ class RegisterController extends Controller
             'username' => 'required|string|email',
             'type' => 'required',
             'name' => 'required',
+            'gender' => 'required',
             'phone_number' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -77,6 +78,8 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'type' => $data['type'],
             'name' => $data['name'],
+            'gender' => $data['gender'],
+            'detail' => $data['detail'],
             'job_requested' => '0',
             'phone_number' => $data['phone_number']
         ]);

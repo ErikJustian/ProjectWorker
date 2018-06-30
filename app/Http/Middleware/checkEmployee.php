@@ -21,7 +21,7 @@ class checkEmployee
             return $next($request);
         }
         else {
-            return redirect('home');
+            return redirect('employer/profile');
         }
     }
 }
