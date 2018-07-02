@@ -32,6 +32,10 @@ Route::get('/referredjob', function() {
     return view('layouts.employee.referredjoblist');
 });
 
+Route::get('/searchjob', function() {
+    return view('layouts.employee.searchjob');
+});
+
 
 Route::prefix('admin')->group(function() {
 
