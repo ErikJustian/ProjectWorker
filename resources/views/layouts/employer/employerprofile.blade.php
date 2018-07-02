@@ -4,133 +4,99 @@
 @section('title', 'Page Title')
 
 @section('content')
-<div class="py-5 text-dark" >
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img class="d-block img-fluid my-3" src="https://cdn1.iconfinder.com/data/icons/business-charts/512/customer-512.png"> </div>
-        <div class="col-md-6">
-          <h1>Profile</h1>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Name</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">{{$name}}</p>
-                </div>
-              </div>
-            </div>
+<div class="py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        <img class="img-fluid d-block" src="{{ asset('images/line.png') }}"> </div>
+      <div class="col-md-6">
+        <div class="row">
+          <div class="col-md-6">
+            <h1 class="">Line Corp.</h1>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Email</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">{{$username}}</p>
-                </div>
+          <div class="col-md-6">
+            <div class="row">
+              <div class="col-md-3 text-info" style="transition: all 0.25s;">
+                <i class="fa fa-map-marker fa-2x d-inline pull-right"></i>
               </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Phone</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">{{$phone_number}}</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Gender</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">Male</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-12">
-                  <a class="btn btn-danger fa fa-pencil pull-right" href="#">Edit Profile</a>
-                </div>
+              <div class="col-md-9" style="transition: all 0.25s;">
+                <p class="lead text-info">Medan, Indonesia</p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <b>
-        <hr> </b>
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Status</h1>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Job Taken</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">10</p>
-                </div>
-              </div>
-            </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="lead text-primary">Company Profile</p>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Level</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">Amateur</p>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="">Line Corporation (stylized as LINE Corporation), located in Tokyo, is a Japanese subsidiary of the South Korean
+              internet search giant Naver Corporation. The company's business is mainly associated with the development of
+              mobile applications and Internet services.</p>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Rating</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">8.5</p>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="lead text-info">Number of Job Posted</p>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Deposit</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">Rp.0</p>
-                </div>
-              </div>
-            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="" style="font-size: 150%;">10,256</p>
           </div>
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row">
-                <div class="col-md-6">
-                  <p class="lead judul">Commision</p>
-                </div>
-                <div class="col-md-6">
-                  <p class="lead">Male</p>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <ul class="nav nav-tabs">
+              <li class="nav-item">
+                <a href="" class="active nav-link" data-toggle="tab" data-target="#tabone">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="" data-toggle="tab" data-target="#tabtwo">History</a>
+              </li>
+            </ul>
+            <div class="tab-content mt-2">
+              <div class="tab-pane fade show active" id="tabone" role="tabpanel">
+                <div class="container">
+                  <div class="row">
+                    <p class="lead text-info text-uppercase">
+                      <b>Contact Information</b>
+                    </p>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p> Contact Person: </p>
+                    </div>
+                    <div class="col-md-6">
+                      <p> Mark Jones </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p> Phone: </p>
+                    </div>
+                    <div class="col-md-6">
+                      <p> +0082109830821 </p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p> Address:</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p> Jl. Jemadi No.21</p>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <p> Email:</p>
+                    </div>
+                    <div class="col-md-6">
+                      <p> kutu@gmail.com</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -138,7 +104,6 @@
         </div>
       </div>
     </div>
-  </div>
 @endsection
 @push('scripts')
 <script>

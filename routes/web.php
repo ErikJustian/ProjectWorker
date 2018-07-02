@@ -15,6 +15,24 @@ Route::get('/', function () {
     return view('child');
 });
 
+// Delete this after use    
+Route::get('/employeeprofile', function() {
+    return view('layouts.employee.employeeprofile');
+});
+
+Route::get('/employerpostedjob', function() {
+    return view('layouts.employer.employerpostedjob');
+});
+
+Route::get('/applicantslist', function() {
+    return view('layouts.employer.applicantslist');
+});
+
+Route::get('/referredjob', function() {
+    return view('layouts.employee.referredjoblist');
+});
+
+
 Route::prefix('admin')->group(function() {
 
     Route::middleware(['adminlogged'])->group(function () {
@@ -32,13 +50,11 @@ Route::prefix('admin')->group(function() {
         Route::post('add/delete', 'Admin\AdminController@delete');
         Route::get('add/data', 'Admin\AdminController@data')->name('admindata');
     });
-
-    
 });
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
-    
+
     // Employee
     Route::middleware(['employee'])->group(function () {
         Route::prefix('employee')->group(function () {
@@ -46,7 +62,7 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/profile', 'ProfileController@indexEmployee')->name('employeeprofile');
         });
     });
-    
+
     // Employer
     Route::middleware(['employer'])->group(function () {
         Route::prefix('employer')->group(function () {
