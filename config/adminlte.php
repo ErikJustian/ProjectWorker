@@ -111,21 +111,15 @@ return [
         'Employee',
         [
             'text'        => 'Employee user',
-            'url'         => 'admin/adduser',
+            'url'         => 'admin/employee',
             'icon'        => 'user-plus',
             'label_color' => 'success',
         ],
         [
-            'text'        => 'Deposit',
-            'url'         => 'admin/deposit',
-            'icon'        => 'credit-card',
-            'label_color' => 'success',
-        ],
-        [
-            'text'        => 'Withdraw',
-            'url'         => 'admin/withdraw',
+            'text'        => 'Transaction',
+            'url'         => 'admin/transaction',
             'icon'        => 'dollar',
-            'label_color' => 'success',
+            'label_color' => 'danger',
         ],
         'ACCOUNT SETTINGS',
         [

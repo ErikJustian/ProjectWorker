@@ -24,7 +24,8 @@ class LoginController extends Controller
     }
 
     public function dashboard() {
-        return view('admin.dashboard');
+        $data['user'] = Auth::user()->username;
+        return view('admin.dashboard', $data);
     }
 
     public function logout() {

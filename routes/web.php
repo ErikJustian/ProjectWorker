@@ -53,6 +53,16 @@ Route::prefix('admin')->group(function() {
         Route::post('add/new', 'Admin\AdminController@add');
         Route::post('add/delete', 'Admin\AdminController@delete');
         Route::get('add/data', 'Admin\AdminController@data')->name('admindata');
+
+        Route::prefix('employee')->group(function() {
+            Route::get('data', 'Admin\EmployeeController@data')->name('employeedata');
+            Route::get('new', 'Admin\EmployeeController@form')->name('employeeform');
+            Route::get('edit/{id}', 'Admin\EmployeeController@editForm')->name('employeeeditform');
+            Route::post('edit', 'Admin\EmployeeController@edit')->name('employeeedit');
+            Route::post('delete', 'Admin\EmployeeController@delete')->name('employeedelete');
+            Route::post('register', 'Admin\EmployeeController@register')->name('employeeregister');
+            Route::get('', 'Admin\EmployeeController@index')->name('employeeindex');
+        });
     });
 });
 

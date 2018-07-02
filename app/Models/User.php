@@ -29,15 +29,10 @@ class User extends Authenticatable
     protected $fillable = ['username','password','role'];
 
     public function employee() {
-        return $this->hasOne('App\Models\Employee');
+        return $this->hasOne('App\Models\Employee', 'user_id', 'id');
     }
 
     public function employer() {
         return $this->hasOne('App\Models\Employer', 'user_id', "id");
-    }
-
-    public function userlink() {
-        $a = $this->username + "ganteng";
-        return $a;
     }
 }

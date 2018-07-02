@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 // Model 
 use App\Models\User;
+// Auth
+use Auth;
 
 class AdminController extends Controller
 {
@@ -14,7 +16,7 @@ class AdminController extends Controller
     }
 
     public function data() {
-        $user = User::where('role', 'Admin')->get();
+        $user = User::where('role', 'Admin')->where('id', '!=', Auth::user()->id)->get();
         return $user;
     }
     
