@@ -15,6 +15,26 @@ Route::get('/', function () {
     return view('child');
 });
 
+Route::prefix('admin')->group(function() {
+
+    Route::middleware(['adminlogged'])->group(function () {
+        Route::get('login', 'Admin\LoginController@showLogin');
+        Route::post('login', 'Admin\LoginController@authenticate');
+    });
+
+    Route::middleware(['admin'])->group(function () {
+        Route::get('dashboard', 'Admin\LoginController@dashboard');
+        Route::get('logout', 'Admin\LoginController@logout');
+        // admin user manage
+        Route::get('add', 'Admin\AdminController@index');
+        Route::get('add/new', 'Admin\AdminController@form');
+        Route::post('add/new', 'Admin\AdminController@add');
+        Route::post('add/delete', 'Admin\AdminController@delete');
+        Route::get('add/data', 'Admin\AdminController@data')->name('admindata');
+    });
+
+    
+});
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {

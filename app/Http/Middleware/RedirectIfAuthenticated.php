@@ -22,6 +22,8 @@ class RedirectIfAuthenticated
                 return redirect('/employer/profile');
             } else if(Auth::user()->role = "Employee") {
                 return redirect('/employee/profile');
+            } else if(Auth::user()->role = "Admin") {
+                return redirect('/admin/dashboard');
             }
         }
         return $next($request);

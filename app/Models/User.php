@@ -35,4 +35,9 @@ class User extends Authenticatable
     public function employer() {
         return $this->hasOne('App\Models\Employer', 'user_id', "id");
     }
+
+    public function userlink() {
+        $a = $this->username + "ganteng";
+        return $a;
+    }
 }
