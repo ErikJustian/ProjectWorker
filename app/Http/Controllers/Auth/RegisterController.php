@@ -48,12 +48,13 @@ class RegisterController extends Controller
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $data)
-    {
+    {   
         return Validator::make($data, [
             'username' => 'required|string|email',
             'type' => 'required',
             'name' => 'required',
             'gender' => 'required',
+            'address' => 'required',
             'phone_number' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -67,7 +68,6 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {   
-
         $user = User::create([
             'username' => $data['username'],
             'role' => 'Employer',
@@ -78,12 +78,12 @@ class RegisterController extends Controller
             'user_id' => $user->id,
             'type' => $data['type'],
             'name' => $data['name'],
-            'gender' => $data['gender'],
             'detail' => $data['detail'],
             'job_requested' => '0',
-            'phone_number' => $data['phone_number']
-        ]);
-
+            'phone_number' => $data['phone_number'],
+            'gender' => $data['gender'],
+            'address' => $data['address']
+        ]); 
         return $user;
     }
 }

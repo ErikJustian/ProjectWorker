@@ -61,8 +61,8 @@
                             <div class="col-md-6">
                                 <select id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}" name="gender" value="{{ old('gender') }}"
                                     required>
-                                    <option>M</option>
-                                    <option>F</option>
+                                    <option value="M">M</option>
+                                    <option value="F">F</option>
                                 </select>
 
                                 @if ($errors->has('gender'))
@@ -81,6 +81,20 @@
                                     value="{{ old('phone_number') }}" required autofocus> @if ($errors->has('name'))
                                 <span class="invalid-feedback">
                                     <strong>{{ $errors->first('phone_number') }}</strong>
+                                </span>
+                                @endif
+                            </div>
+                        </div>
+                        <!-- Address -->
+                        <div class="form-group row">
+                            <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                            <div class="col-md-6">
+                                <textarea id="address"  class="form-control{{ $errors->has('address') ? ' is-invalid' : '' }}" name="address"
+                                    value="{{ old('address') }}" required autofocus> 
+                                </textarea>
+                                @if ($errors->has('address'))
+                                <span class="invalid-feedback">
+                                    <strong>{{ $errors->first('address') }}</strong>
                                 </span>
                                 @endif
                             </div>

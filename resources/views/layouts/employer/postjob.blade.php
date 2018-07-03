@@ -1,5 +1,5 @@
 
-@extends('layouts.app')
+@extends('layouts.employer.employernavbar')
 
 @section('title', 'Page Title')
 
@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-md-12">
           <h1 class="text-dark">Post a Job</h1>
-          <form method='POST' action='/postjob'>
+          <form method='POST' action='postjob'>
             @csrf
             <!-- Title -->
             <div class="form-group">
@@ -29,6 +29,18 @@
               @foreach($category as $cat)
                 <option value={{$cat["id"]}}>
                   {{$cat['category_name']}}
+                </option>
+              @endforeach
+              </select>
+            </div>
+            <!-- Category -->
+            <div class="form-group">
+              <label for="InputName" class="text-dark">Job Location</label>
+              <select class="form-control" name='location'>
+                <option>Location</option>
+              @foreach($locations as $location)
+                <option value={{$location["id"]}}>
+                  {{$location['location']}}
                 </option>
               @endforeach
               </select>
@@ -49,7 +61,7 @@
             </div>
             <div class="form-group">
               <label for="detail" class="text-dark">Detail</label>
-              <textarea class="form-control" id="detail" name="detail" rows="3" placeholder="Detail"></textarea>
+              <textarea class="form-control" id="detail" name="detail" rows="3" placeholder="Your job offer description and address"></textarea>
             </div>
             <button type="submit" class="btn btn-secondary">Post</button>
           </form>

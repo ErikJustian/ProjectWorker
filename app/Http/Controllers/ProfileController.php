@@ -23,6 +23,7 @@ class ProfileController extends Controller
     public function indexEmployee() {
         $user= Auth::user();
         $profile['username'] = $user->username;
+        return view('layouts.employee.employeeprofile', $profile);
     }
     
 }

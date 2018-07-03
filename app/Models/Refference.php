@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class refference extends Model
+class Refference extends Model
 {
     //
 }

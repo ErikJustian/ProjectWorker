@@ -15,11 +15,7 @@ Route::get('/', function () {
     return view('child');
 });
 
-// Delete this after use    
-Route::get('/employeeprofile', function() {
-    return view('layouts.employee.employeeprofile');
-});
-
+// Delete this after use
 Route::get('/employerpostedjob', function() {
     return view('layouts.employer.employerpostedjob');
 });
@@ -74,6 +70,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::prefix('employee')->group(function () {
             Route::get('/search', 'Employee\SearchController@index')->name('search');
             Route::get('/profile', 'ProfileController@indexEmployee')->name('employeeprofile');
+            Route::get('/referredjob', 'Employee\ReferredJobController@index')->name('referredjob');
         });
     });
 
@@ -81,8 +78,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::middleware(['employer'])->group(function () {
         Route::prefix('employer')->group(function () {
             Route::get('/profile', 'ProfileController@indexEmployer')->name('employerprofile');
-            Route::get('/postjob', 'PostJobController@index')->name('postjobform');
-            Route::post('/postjob', 'PostJobController@post')->name('postjob');
+            Route::get('/applicants', 'Employer\ApplicantController@index')->name('applicantlist');
+            Route::get('/postedjob', 'Employer\PostedJobController@index')->name('postedjob');
+            Route::get('/postjob', 'Employer\PostJobController@index')->name('postjobform');
+            Route::post('/postjob', 'Employer\PostJobController@post')->name('postjob');
         });
     });
     Route::get('/home', 'HomeController@index')->name('home');

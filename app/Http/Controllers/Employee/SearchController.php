@@ -12,6 +12,8 @@ class SearchController extends Controller
     public function index() {
         $job = JobRequest::get()->where('status',JobRequest::JOB_REQUEST_STATUS_AWAITING);
         dd($job);
+
+        return view('layouts.employee.searchjob');
     }
     // Untuk mengambil job
     public function takeJob() {
