@@ -41,6 +41,9 @@ Route::prefix('admin')->group(function() {
     });
 
     Route::middleware(['admin'])->group(function () {
+        Route::get('', function() {
+            return redirect('admin/dashboard');
+        });
         Route::get('dashboard', 'Admin\LoginController@dashboard');
         Route::get('logout', 'Admin\LoginController@logout');
         // admin user manage
@@ -51,6 +54,7 @@ Route::prefix('admin')->group(function() {
         Route::get('add/data', 'Admin\AdminController@data')->name('admindata');
 
         Route::prefix('employee')->group(function() {
+            // User Control
             Route::get('data', 'Admin\EmployeeController@data')->name('employeedata');
             Route::get('new', 'Admin\EmployeeController@form')->name('employeeform');
             Route::get('edit/{id}', 'Admin\EmployeeController@editForm')->name('employeeeditform');
@@ -58,6 +62,14 @@ Route::prefix('admin')->group(function() {
             Route::post('delete', 'Admin\EmployeeController@delete')->name('employeedelete');
             Route::post('register', 'Admin\EmployeeController@register')->name('employeeregister');
             Route::get('', 'Admin\EmployeeController@index')->name('employeeindex');
+        });
+
+        Route::prefix('transaction')->group(function() {
+            Route::get('', 'Admin\TransactionController@index')->name('transactiontable');
+            Route::get('userdata', 'Admin\TransactionController@userData');
+            Route::get('data', 'Admin\TransactionController@transactionData')->name('transactiondata');
+            Route::get('new', 'Admin\TransactionController@form')->name('transactionform');
+            Route::post('new', 'Admin\TransactionController@transaction')->name('transactionsubmit');        
         });
     });
 });

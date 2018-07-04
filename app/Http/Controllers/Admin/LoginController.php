@@ -20,7 +20,6 @@ class LoginController extends Controller
         $errors['email'] =  'Credential wrong';
         return redirect()->back()
         ->withErrors($errors);
-        return back()->withErrors(['email', 'Credential Wrong Please Insert The Correct Credential']);
     }
 
     public function dashboard() {
@@ -30,6 +29,6 @@ class LoginController extends Controller
 
     public function logout() {
         Auth::logout();
-        return dump(Auth::user());
+        return redirect('admin/login');
     }
 }
