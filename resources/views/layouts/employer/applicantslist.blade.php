@@ -8,10 +8,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <div class="card">
-            <div class="card-header"> Job Description</div>
+          <div class="card border-primary">
             <div class="card-body">
-              <h4 class="lead text-primary" style="font-weight:bold;">Personal Driver</h4>
+              <h4 class="card-title lead text-primary" style="font-weight:bold;">Personal Driver</h4>
+              <hr>
               <p>Need of a personal driver for duration of 3 days. Address is located in Jl. Anggur No.1A.</p>
               <div class="row">
                 <div class="col-sm-3">

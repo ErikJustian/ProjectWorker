@@ -7,20 +7,18 @@
 <div class="py-5">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
-        <img class="img-fluid d-block" src="{{ asset('images/line.png') }}"> </div>
-      <div class="col-md-6">
+      <div class="col-md-4 mb-2">
+        <img class="img-fluid d-block img-thumbnail" src="{{ asset('images/line.png') }}" style="width:400px; height:400px">
+      </div>
+      <div class="col-md-8">
         <div class="row">
           <div class="col-md-6">
-            <h1 class="">Line Corp.</h1>
+            <h1 class="">{{$name}}</h1>
           </div>
           <div class="col-md-6">
             <div class="row">
-              <div class="col-md-3 text-info" style="transition: all 0.25s;">
-                <i class="fa fa-map-marker fa-2x d-inline pull-right"></i>
-              </div>
-              <div class="col-md-9" style="transition: all 0.25s;">
-                <p class="lead text-info">Medan, Indonesia</p>
+              <div class="col text-info" style="transition: all 0.25s;">
+                <p class="lead text-info float-right"><i class="fa fa-map-marker"></i>&nbsp;Medan, Indonesia</p>
               </div>
             </div>
           </div>
@@ -32,9 +30,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <p class="">Line Corporation (stylized as LINE Corporation), located in Tokyo, is a Japanese subsidiary of the South Korean
-              internet search giant Naver Corporation. The company's business is mainly associated with the development of
-              mobile applications and Internet services.</p>
+            <p class="">{{ $detail }}</p>
           </div>
         </div>
         <div class="row">
@@ -44,7 +40,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <p class="" style="font-size: 150%;">10,256</p>
+            <p class="" style="font-size: 150%;">{{ $job_requested }}</p>
           </div>
         </div>
         <div class="row">
@@ -67,18 +63,10 @@
                   </div>
                   <div class="row">
                     <div class="col-md-6">
-                      <p> Contact Person: </p>
-                    </div>
-                    <div class="col-md-6">
-                      <p> Mark Jones </p>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-6">
                       <p> Phone: </p>
                     </div>
                     <div class="col-md-6">
-                      <p> +0082109830821 </p>
+                      <p> {{ $phone_number }} </p>
                     </div>
                   </div>
                   <div class="row">
@@ -86,7 +74,7 @@
                       <p> Address:</p>
                     </div>
                     <div class="col-md-6">
-                      <p> Jl. Jemadi No.21</p>
+                      <p> {{ $address }} </p>
                     </div>
                   </div>
                   <div class="row">
@@ -94,7 +82,7 @@
                       <p> Email:</p>
                     </div>
                     <div class="col-md-6">
-                      <p> kutu@gmail.com</p>
+                      <p> {{ $username }}</p>
                     </div>
                   </div>
                 </div>
@@ -104,7 +92,7 @@
         </div>
       </div>
     </div>
-@endsection
+@endsection 
 @push('scripts')
 <script>
 $(document).ready(function() {

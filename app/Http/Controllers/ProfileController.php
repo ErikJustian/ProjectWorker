@@ -18,6 +18,7 @@ class ProfileController extends Controller
         $profile['job_requested'] = $user->employer->job_requested;
         $profile['detail'] = $user->employer->detail;
         $profile['phone_number'] = $user->employer->phone_number;
+        $profile['address'] = $user->employer->address;
         return view('layouts.employer.employerprofile', $profile);
     }
     public function indexEmployee() {

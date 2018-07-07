@@ -15,7 +15,7 @@ class LoginController extends Controller
         $email = $request->email;
         $password = $request->password;
         if (Auth::attempt(['username' => $email, 'password' => $password, 'role' => 'Admin'])) {
-            return redirect()->intended('admin/dashboard');
+            return redirect('admin/dashboard');
         }
         $errors['email'] =  'Credential wrong';
         return redirect()->back()
