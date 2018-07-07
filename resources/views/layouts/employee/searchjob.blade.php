@@ -42,9 +42,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <select class="form-control" id="category" name="category" onchange="changeCategory(this)">
-                        <option disabled="disabled" selected="true">Select Category</option>
+                        <option selected="true" value="">All Category</option>
                         @foreach($categories as $category)
+                        @if(app('request')->get('category') == $category->id )
+                        <option value="{{$category->id}}" selected=true>{{$category->category_name}}</option>
+                        @else
                         <option value="{{$category->id}}">{{$category->category_name}}</option>
+                        @endif                        
                         @endforeach
                     </select>
                 </div>
@@ -52,9 +56,13 @@
             <div class="col-md-6">
                 <div class="form-group">
                     <select class="form-control" id="location" name="location" onchange="changeLocation(this)">
-                        <option disabled="disabled" selected="true">Select Location</option>
+                        <option selected="true" value ="">All Location</option>
                         @foreach($locations as $location)
+                        @if(app('request')->get('location') == $location->id )
+                        <option value="{{$location->id}}" selected=true>{{$location->location}}</option>
+                        @else
                         <option value="{{$location->id}}">{{$location->location}}</option>
+                        @endif
                         @endforeach
                     </select>
                 </div>
@@ -135,31 +143,37 @@ $(document).ready(function() {
 });
 var url="search";
     function changeLocation(locationid) {
+        // Syntax List
+        // urlParams.set(name, value) >>>> untuk ganti value yg udah ada
+        // urlParams.append(name, value) >>>> untuk nambah value baru
+        // urlParams.delete(name) >>>>>> untuk hapus value
+        // urlParams.toString() >>>> untuk ambil semua query string
+        // urlParams.get(name) >>>>> untuk ambil query string dengan name tertentu
+        // urlParams.has(name) >>>>>>> untuk cek apakah ada atau tidak
         var urlParams = new URLSearchParams(window.location.search);
-        console.log(urlParams);
-        console.log(urlParams.toString());
-        // console.log(locationid.value);
-        // $location = getParameterByName('location');
-        // $category = getParameterByName('category');
-        // $filter_location = "?location"+ locationid.value;    
-        // // url = url+"?location="$locationid.value;
-        // location.assign('/google.com');
-        // url = 
-        // location.replace('www.google.com')
+        if(locationid.value == "") {
+            urlParams.delete('location')
+        } else {
+            // Set query string
+            urlParams.set('location', locationid.value);
+            // Delete jika dihapus
+            // Send href
+        }
+        location.replace(url+"?"+urlParams.toString()); 
     }
 
     function changeCategory(category) {
-        console.log(category.value);
+        var urlParams = new URLSearchParams(window.location.search);
+        if(category.value == "") {
+            urlParams.delete('category')
+        } else {
+            // Set query string
+            urlParams.set('category', category.value);
+            // Delete jika dihapus
+            // Send href
+        }
+        location.replace(url+"?"+urlParams.toString()); 
     }
 
-    function getParameterByName(name, url) {
-        if (!url) url = window.location.href;
-        name = name.replace(/[\[\]]/g, "\\$&");
-        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-        if (!results) return null;
-        if (!results[2]) return '';
-        return decodeURIComponent(results[2].replace(/\+/g, " "));
-    }
 </script>
 @endpush
