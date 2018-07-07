@@ -123,7 +123,7 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             <h5 class="mb-1 lead text-primary">IDR {{number_format($job['salary'], 2)}}</h5>
-                            <button class="ml-auto btn btn-success">Request</button>
+                            <button class="ml-auto btn btn-success" onClick="requestJob({{$job['id']}})">Request</button>
                             <button class="ml-1 btn btn-dark" data-target="#exampleModalCenter" data-toggle="modal" onclick="modal_data"> Refer to </button>
                             <button class="ml-1 btn btn-primary"> View Profile </button>
                         </div>
@@ -142,6 +142,20 @@
 $(document).ready(function() {
 });
 var url="search";
+    // Send Request
+    function requestJob(id) {
+        form = document.createElement('form');
+        // url
+        form.action = '/employee/search';
+        form.method = 'POST';
+        form.innerHTML = '@csrf<input name="job_id" value="'+id+'">';
+
+        // the form must be in the document to submit it
+        document.body.append(form);
+
+        form.submit();
+    }
+    // Filter Location
     function changeLocation(locationid) {
         // Syntax List
         // urlParams.set(name, value) >>>> untuk ganti value yg udah ada
@@ -161,7 +175,7 @@ var url="search";
         }
         location.replace(url+"?"+urlParams.toString()); 
     }
-
+    // Filter Category
     function changeCategory(category) {
         var urlParams = new URLSearchParams(window.location.search);
         if(category.value == "") {

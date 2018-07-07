@@ -80,6 +80,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Employee
     Route::middleware(['employee'])->group(function () {
         Route::prefix('employee')->group(function () {
+            Route::post('/search', 'Employee\SearchController@takeJob');
             Route::get('/search', 'Employee\SearchController@index')->name('search');
             Route::get('/profile', 'ProfileController@indexEmployee')->name('employeeprofile');
             Route::get('/referredjob', 'Employee\ReferredJobController@index')->name('referredjob');
