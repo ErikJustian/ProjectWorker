@@ -42,6 +42,17 @@
               <option value="F">F</option>
             </select>
           </div>
+          <!-- Birthdate -->
+          <div class="form-group">
+            <label for="birthdate" class="text-dark">Birthdate</label>
+            <input type='date' class="form-control" id="birthdate" name="birthdate" required>
+          </div>
+          <!-- Address -->
+          <div class="form-group">
+            <label for="address" class="text-dark">Address</label>
+            <Textarea class="form-control" id="address" name="address" placeholder="Fill address here" required>
+            </Textarea>
+          </div>
           <button type="submit" class="btn btn-secondary">Add</button>
         </form>
       </div>

@@ -7,9 +7,11 @@ use App\Http\Controllers\Controller;
 use Auth;
 
 use App\Models\JobRequest;
+use App\Models\User;
 use App\Models\EmployeeRequest;
 use App\Models\Location;
 use App\Models\Category;
+use App\Models\Refference;
 
 class SearchController extends Controller
 {
@@ -46,7 +48,17 @@ class SearchController extends Controller
         return redirect()->route('employeeprofile');
     }
     // Untuk reference job
-    public function referrenceJob() {
-
+    public function referrenceJob(Request $request) {
+        $refferal = User::where('username', $request->username)->where('role', 'Employee')->first();
+        if($refferal==null){
+            $errors['username'] =  'No such username!';
+            return redirect()->back()
+            ->withErrors($errors);
+        }
+        $refference = new Refference;
+        $reffernce->refferer_id = Auth::user()->id;
+        $refference->job_id = $request->job_id;
+        $refference->refferal_id = $refferal->id;
+        return $request;
     }
 }

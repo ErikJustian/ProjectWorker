@@ -66,6 +66,8 @@ class EmployeeController extends Controller
         $employee->class_id = 1;
         $employee->commission = 0;
         $employee->deposit_tab = 0;
+        $employee->birthdate = $request->birthdate;
+        $employee->address = $request->address;
         $employee->save();
         return redirect()->route('employeeindex');
     }

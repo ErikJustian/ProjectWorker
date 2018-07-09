@@ -12,31 +12,35 @@
                 <div class="modal-dialog modal-dialog-centered" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLongTitle title-job">Modal title</h5>
+                            <h5 class="modal-title top-title" id="exampleModalLongTitle">Modal title</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">×</span>
                             </button>
                         </div>
                         <div class="modal-body">
-                            <h5 class="lead text-primary">Personal Driver</h5>
-                            <p> Need of a personal driver for duration of 3 days. Address is located in Jl.Anggur No.1A.</p>
+                            <h5 class="lead text-primary middle-title">Personal Driver</h5>
+                            <p class='detail-job'> Need of a personal driver for duration of 3 days. Address is located in Jl.Anggur No.1A.</p>
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="basic-addon1">@</span>
                                 </div>
-                                <input type="text" class="form-control" placeholder="#UserID" aria-label="Username" aria-describedby="basic-addon1" name='username'>
-                                <input type="hidden" name="job_id" id="job_id">
+                                <input type="text" id='username' class="form-control" placeholder="#UserID" aria-label="Username" aria-describedby="basic-addon1" name='username'>
                             </div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Send Referral</button>
+                            <button type="button" id="btn-referral" onclick="sendReferrence(this)" class="btn btn-primary">Send Referral</button>
                         </div>
                     </div>
                 </div>
             </form>
         </div>
         <!-- Modal End -->
+        @if ($errors->has('username'))
+        <div class="alert alert-danger">
+            {{ $errors->first('username') }}
+        </div>
+        @endif
         <!-- Filter -->
         <div class="row">
             <div class="col-md-6">
@@ -126,7 +130,7 @@
                         <div class="d-flex justify-content-between">
                             <h5 class="mt-1 mb-1 lead text-primary">IDR {{number_format($job['salary'], 2)}}</h5>
                             <button class="ml-auto btn btn-success" onClick="requestJob({{$job['id']}})">Request</button>
-                            <button class="ml-1 btn btn-dark" data-target="#exampleModalCenter" data-toggle="modal" onclick="modal_data"> Refer to </button>
+                            <button class="ml-1 btn btn-dark" data-target="#exampleModalCenter" data-toggle="modal" onclick='showModal({!!$job!!})' > Refer to </button>
                             <button class="ml-1 btn btn-primary"> View Profile </button>
                         </div>
                     </a>
@@ -162,6 +166,33 @@ var url="search";
 
         form.submit();
     }
+    // Send Reffernce
+    function sendReferrence(btn) {
+        user = document.getElementById('username').value;
+        if(user == "") {
+            return alert("Please Fill The Username Field")
+        }
+        form = document.createElement('form');
+        // url
+        form.action = '/employee/refer';
+        form.method = 'POST';
+        form.innerHTML = '@csrf<input name="job_id" value="'+btn.value+'"/> <input name=username value="'+user+'"/>';
+
+        // the form must be in the document to submit it
+        document.body.append(form);
+
+        form.submit();
+        console.log(btn.value);
+    }
+    // showModal
+    function showModal(job) {
+        console.log(job['id']);
+        document.getElementsByClassName('top-title')[0].innerHTML = job['title'];
+        document.getElementsByClassName('middle-title')[0].innerHTML = job['title'];
+        document.getElementsByClassName('detail-job')[0].innerHTML = job['detail'];
+        document.getElementById('btn-referral').value = job['id'];
+
+    }   
     // Filter Location
     function changeLocation(locationid) {
         // Syntax List

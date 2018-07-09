@@ -63,7 +63,7 @@ Route::prefix('admin')->group(function() {
             Route::post('register', 'Admin\EmployeeController@register')->name('employeeregister');
             Route::get('', 'Admin\EmployeeController@index')->name('employeeindex');
         });
-
+        
         Route::prefix('transaction')->group(function() {
             Route::get('', 'Admin\TransactionController@index')->name('transactiontable');
             Route::get('userdata', 'Admin\TransactionController@userData');
@@ -76,17 +76,18 @@ Route::prefix('admin')->group(function() {
 
 Auth::routes();
 Route::group(['middleware' => ['auth']], function () {
-
+    
     // Employee
     Route::middleware(['employee'])->group(function () {
         Route::prefix('employee')->group(function () {
             Route::post('/search', 'Employee\SearchController@takeJob');
             Route::get('/search', 'Employee\SearchController@index')->name('search');
             Route::get('/profile', 'ProfileController@indexEmployee')->name('employeeprofile');
+            Route::post('refer', 'Employee\SearchController@referrenceJob')->name('employeerefer');
             Route::get('/referredjob', 'Employee\ReferredJobController@index')->name('referredjob');
         });
     });
-
+    
     // Employer
     Route::middleware(['employer'])->group(function () {
         Route::prefix('employer')->group(function () {
