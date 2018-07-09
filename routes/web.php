@@ -36,7 +36,7 @@ Route::get('/searchjob', function() {
 Route::prefix('admin')->group(function() {
 
     Route::middleware(['adminlogged'])->group(function () {
-        Route::get('login', 'Admin\LoginController@showLogin');
+        Route::get('login', 'Admin\LoginController@showLogin')->name('login');
         Route::post('login', 'Admin\LoginController@authenticate');
     });
 

@@ -61,7 +61,7 @@
                         <p> Phone: </p>
                       </div>
                       <div class="col-md-6">
-                        <p> +0082109830821 </p>
+                        <p> {{ $phone }} </p>
                       </div>
                     </div>
                     <div class="row">
@@ -69,7 +69,7 @@
                         <p> Address:</p>
                       </div>
                       <div class="col-md-6">
-                        <p> Jl. Krakatau No.29</p>
+                        <p>  </p>
                       </div>
                     </div>
                     <div class="row">
@@ -77,7 +77,7 @@
                         <p> Email:</p>
                       </div>
                       <div class="col-md-6">
-                        <p> kutu@gmail.com</p>
+                        <p> {{ $email }} </p>
                       </div>
                     </div>
                     <div class="row">
@@ -90,7 +90,13 @@
                         <p> Gender: </p>
                       </div>
                       <div class="col-md-6">
-                        <p> Male</p>
+                        <p>
+                          @if ($gender == 'M')
+                            Male
+                          @else
+                            Female
+                          @endif
+                        </p>
                       </div>
                     </div>
                     <div class="row">
@@ -98,7 +104,7 @@
                         <p> Birthday: </p>
                       </div>
                       <div class="col-md-6">
-                        <p> January 1, 1992</p>
+                        <p> </p>
                       </div>
                     </div>
                   </div>
