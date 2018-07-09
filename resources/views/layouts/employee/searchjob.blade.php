@@ -41,6 +41,11 @@
             {{ $errors->first('username') }}
         </div>
         @endif
+        @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+        @endif
         <!-- Filter -->
         <div class="row">
             <div class="col-md-6">

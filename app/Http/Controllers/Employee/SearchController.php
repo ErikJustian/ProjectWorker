@@ -56,9 +56,11 @@ class SearchController extends Controller
             ->withErrors($errors);
         }
         $refference = new Refference;
-        $reffernce->refferer_id = Auth::user()->id;
+        $refference->refferer_id = Auth::user()->id;
         $refference->job_id = $request->job_id;
         $refference->refferal_id = $refferal->id;
-        return $request;
+        $refference->status = 'Pending';
+        $refference->save();
+        return redirect()->back()->with('status', 'Referrence Send!');
     }
 }
