@@ -19,11 +19,19 @@ class ProfileController extends Controller
         $profile['detail'] = $user->employer->detail;
         $profile['phone_number'] = $user->employer->phone_number;
         $profile['address'] = $user->employer->address;
+
         return view('layouts.employer.employerprofile', $profile);
     }
     public function indexEmployee() {
         $user= Auth::user();
-        $profile['username'] = $user->username;
+        $profile['fullname'] = $user->employee->fullname;
+        $profile['rating'] = $user->employee->rating;
+        $profile['phone'] = $user->employee->phone_number;
+        // Address is not defined in database
+        $profile['email'] = $user->employee->email;
+        $profile['gender'] = $user->employee->gender;
+        // Birthday is not defined in database
+
         return view('layouts.employee.employeeprofile', $profile);
     }
     

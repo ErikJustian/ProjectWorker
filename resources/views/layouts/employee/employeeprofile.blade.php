@@ -7,20 +7,18 @@
 <div class="py-5">
     <div class="container">
       <div class="row">
-        <div class="col-md-6">
-          <img class="img-fluid d-block" src="{{ asset('images/profilesample.jpg') }}"> </div>
-        <div class="col-md-6">
+        <div class="col-md-4 mb-2">
+          <img class="img-fluid d-block img-thumbnail" src="{{ asset('images/profilesample.jpg') }}" width="400" height="400">
+        </div>
+        <div class="col-md-8">
           <div class="row">
             <div class="col-md-6">
-              <h1 class="">Joe Max&nbsp;</h1>
+              <h1 class="">{{ $fullname }}</h1>
             </div>
             <div class="col-md-6">
               <div class="row">
-                <div class="col-md-3 text-info" style="transition: all 0.25s;">
-                  <i class="fa fa-map-marker fa-2x d-inline pull-right"></i>
-                </div>
-                <div class="col-md-9" style="transition: all 0.25s;">
-                  <p class="lead text-info">Medan, Indonesia</p>
+                <div class="col text-info" style="transition: all 0.25s;">
+                  <p class="lead text-info float-right"><i class="fa fa-map-marker"></i>&nbsp;Medan, Indonesia</p>
                 </div>
               </div>
             </div>
@@ -37,7 +35,7 @@
           </div>
           <div class="row">
             <div class="col-md-12">
-              <p class="lead">8,6</p>
+              <p class="lead"> {{ $rating}} </p>
             </div>
           </div>
           <div class="row">

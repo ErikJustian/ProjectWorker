@@ -4,7 +4,7 @@
 @section('title', 'Page Title')
 
 @section('content')
-<div class="py-5">
+<div class="py-4">
     <div class="container">
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -75,11 +75,12 @@
                 <div class="list-group">
                 @foreach($jobs as $job)
                     <!-- List -->
-                    <a class="list-group-item list-group-item-action flex-column align-items-start">
-                        <div class="d-flex w-100 justify-content-between">
+                    <a class="mt-2 list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="mt-1 d-flex w-100 justify-content-between">
                             <h4 class="lead text-primary" style="font-weight:bold;">{{$job['title']}}</h4>
                             <small>3 days ago</small>
                         </div>
+                        <hr class="mt-1">
                         <p>{{$job['detail']}}</p>
                         <div class="row">
                             <div class="col-sm-3">
@@ -121,8 +122,9 @@
                                 <h6 class="mb-3"> {{$job['category']['category_name']}} </h6>
                             </div>
                         </div>
+                        <hr class="mt-1 mb-1">
                         <div class="d-flex justify-content-between">
-                            <h5 class="mb-1 lead text-primary">IDR {{number_format($job['salary'], 2)}}</h5>
+                            <h5 class="mt-1 mb-1 lead text-primary">IDR {{number_format($job['salary'], 2)}}</h5>
                             <button class="ml-auto btn btn-success" onClick="requestJob({{$job['id']}})">Request</button>
                             <button class="ml-1 btn btn-dark" data-target="#exampleModalCenter" data-toggle="modal" onclick="modal_data"> Refer to </button>
                             <button class="ml-1 btn btn-primary"> View Profile </button>
@@ -133,7 +135,12 @@
             </div>
         </div>
         <!-- Lists end -->
-        {{ $jobs->links() }}
+        <div class="row mt-1">
+            <div class="col-6 m-auto">
+                {{ $jobs->links() }}
+            </div>
+        </div>
+        
     </div>
 </div>
 @endsection
