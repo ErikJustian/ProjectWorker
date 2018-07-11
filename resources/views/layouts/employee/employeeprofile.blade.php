@@ -69,7 +69,7 @@
                         <p> Address:</p>
                       </div>
                       <div class="col-md-6">
-                        <p>  </p>
+                        <p> {{ $address }}</p>
                       </div>
                     </div>
                     <div class="row">
@@ -104,7 +104,7 @@
                         <p> Birthday: </p>
                       </div>
                       <div class="col-md-6">
-                        <p> </p>
+                        <p>{{$birthdate}} </p>
                       </div>
                     </div>
                   </div>

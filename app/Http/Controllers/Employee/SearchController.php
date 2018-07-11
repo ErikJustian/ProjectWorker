@@ -63,4 +63,17 @@ class SearchController extends Controller
         $refference->save();
         return redirect()->back()->with('status', 'Referrence Send!');
     }
+
+    public function viewProfile($id) {
+        $user = User::find($id)->first();
+        $profile['username'] = $user->username;
+        $profile['role'] = $user->role;
+        $profile['type'] = $user->employer->type;
+        $profile['name'] = $user->employer->name;
+        $profile['job_requested'] = $user->employer->job_requested;
+        $profile['detail'] = $user->employer->detail;
+        $profile['phone_number'] = $user->employer->phone_number;
+        $profile['address'] = $user->employer->address;
+        return view('layouts.employee.viewemployer', $profile);
+    }
 }

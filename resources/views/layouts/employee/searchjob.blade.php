@@ -136,7 +136,7 @@
                             <h5 class="mt-1 mb-1 lead text-primary">IDR {{number_format($job['salary'], 2)}}</h5>
                             <button class="ml-auto btn btn-success" onClick="requestJob({{$job['id']}})">Request</button>
                             <button class="ml-1 btn btn-dark" data-target="#exampleModalCenter" data-toggle="modal" onclick='showModal({!!$job!!})' > Refer to </button>
-                            <button class="ml-1 btn btn-primary"> View Profile </button>
+                            <button class="ml-1 btn btn-primary" onclick='viewProfile({{$job}})'> View Profile </button>
                         </div>
                     </a>
                 @endforeach
@@ -187,7 +187,7 @@ var url="search";
         document.body.append(form);
 
         form.submit();
-        console.log(btn.value);
+
     }
     // showModal
     function showModal(job) {
@@ -231,6 +231,9 @@ var url="search";
         }
         location.replace(url+"?"+urlParams.toString()); 
     }
-
+    // viewProfile
+    function viewProfile(job) {
+        location.replace('employer/'+job['user']['user_id']); 
+    }
 </script>
 @endpush

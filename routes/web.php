@@ -15,23 +15,6 @@ Route::get('/', function () {
     return view('child');
 });
 
-// Delete this after use
-Route::get('/employerpostedjob', function() {
-    return view('layouts.employer.employerpostedjob');
-});
-
-Route::get('/applicantslist', function() {
-    return view('layouts.employer.applicantslist');
-});
-
-Route::get('/referredjob', function() {
-    return view('layouts.employee.referredjoblist');
-});
-
-Route::get('/searchjob', function() {
-    return view('layouts.employee.searchjob');
-});
-
 
 Route::prefix('admin')->group(function() {
 
@@ -93,10 +76,17 @@ Route::group(['middleware' => ['auth']], function () {
     Route::middleware(['employer'])->group(function () {
         Route::prefix('employer')->group(function () {
             Route::get('/profile', 'ProfileController@indexEmployer')->name('employerprofile');
-            Route::get('/applicants', 'Employer\ApplicantController@index')->name('applicantlist');
-            Route::get('/postedjob', 'Employer\PostedJobController@index')->name('postedjob');
+            Route::get('/applicants/{id}', 'Employer\ApplicantController@index')->name('applicantlist');
             Route::get('/postjob', 'Employer\PostJobController@index')->name('postjobform');
             Route::post('/postjob', 'Employer\PostJobController@post')->name('postjob');
+
+            Route::get('/postedjob', 'Employer\PostedJobController@index')->name('postedjob');
+            Route::post('/postedjob/start', 'Employer\PostedJobController@start')->name('startjob');
+            Route::post('/postedjob/end', 'Employer\PostedJobController@end')->name('startjob');
+            Route::post('/postedjob/cancel', 'Employer\PostedJobController@cancel')->name('startjob');
+            
+            Route::post('/applicants/accept', 'Employer\ApplicantController@acceptApplicant');
+            Route::post('/applicants/decline', 'Employer\ApplicantController@declineApplicant');
         });
     });
     Route::get('/home', 'HomeController@index')->name('home');

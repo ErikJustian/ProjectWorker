@@ -6,4 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
+  public function class() {
+    return $this->belongsTo('App\Models\Classes', 'class_id', 'id');
+  }
 }
