@@ -1,7 +1,7 @@
 
 @extends('layouts.employee.employeenavbar')
 
-@section('title', 'Page Title')
+@section('title', 'Profile')
 
 @section('content')
 <div class="py-5">

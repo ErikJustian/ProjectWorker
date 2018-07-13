@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class JobRequest extends Model
 {
-  CONST JOB_REQUEST_STATUS_AWAITING = 'Awaiting Request';
+  CONST JOB_REQUEST_STATUS_AWAITING = "Awaiting Request";
   CONST JOB_REQUEST_STATUS_TAKEN = "Pending";
   CONST JOB_REQUEST_STATUS_ON_PROCESS = "On Process";
   CONST JOB_REQUEST_STATUS_FINISHED = "Finished";
@@ -22,5 +22,4 @@ class JobRequest extends Model
   public function jobtaken() {
     return $this->hasOne('App\Models\JobTaken', 'job_id');
   }
- 
 }

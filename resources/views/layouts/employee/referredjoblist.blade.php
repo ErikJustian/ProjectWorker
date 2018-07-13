@@ -18,65 +18,33 @@
                                 <th>Description</th>
                                 <th>Employer</th>
                                 <th>Refferer</th>
-                                <th>Action</th>
+                                <th id="action_column">Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach ($referrences as $referrence)
                             <tr>
-                                <td>1</td>
-                                <td>Tukang Potong Rumput</td>
-                                <td>Dibutuhkan seorang untuk memotong rumput.</td>
-                                <td>Johnson &amp; Johnson</td>
-                                <td>Mark Jones</td>
-                                <td class="">
-                                    <a class="btn btn-primary btn-outline-success" href="#">Accept</a>
-                                    <a class="btn btn-primary btn-outline-danger" href="#">Decline</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Supir pengganti</td>
-                                <td>Dibutuhkan seorang untuk memotong rumput.</td>
-                                <td>Joe Doe</td>
-                                <td>Clare Meek</td>
+                                <td>{{ $loop->iteration }}</td>
+                                <td>{{ $referrence->job->title }}</td>
+                                <td>{{ $referrence->job->detail }}</td>
+                                <td>{{ $referrence->job->user->name }}</td>
+                                <td>{{ $referrence->referrer->fullname }}</td>
                                 <td>
-                                    <a class="btn btn-primary btn-outline-success" href="#">Accept</a>
-                                    <a class="btn btn-primary btn-outline-danger" href="#">Decline</a>
+                                    <form action='referredjob/process' method="POST">
+                                        @csrf
+                                        <div class="form-row">
+                                            <input type='hidden' name="request_id" value="{{$referrence->id}}">
+                                            <div class="form-group col-md-6 text-right">
+                                                <button type="submit" name="decision" value="accept" class="btn btn-primary btn-outline-success" style="width:75px;">Accept</a>
+                                            </div>
+                                            <div class="form-group col-md-6 text-left">
+                                                <button type="submit" name="decision" value="decline" class="btn btn-primary btn-outline-danger" style="width:75px;">Decline</a>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Cashier</td>
-                                <td>Dibutuhkan seorang untuk mengatur kasir.</td>
-                                <td>Tea Garden</td>
-                                <td>Gus Gus</td>
-                                <td>
-                                    <a class="btn btn-primary btn-outline-success" href="#">Accept</a>
-                                    <a class="btn btn-primary btn-outline-danger" href="#">Decline</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Waiter</td>
-                                <td>Dibutuhkan seseorang untuk melayani tamu.</td>
-                                <td>Carl Johnson</td>
-                                <td>Maddie</td>
-                                <td>
-                                    <a class="btn btn-primary btn-outline-success" href="#">Accept</a>
-                                    <a class="btn btn-primary btn-outline-danger" href="#">Decline</a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Entertaiment Pesta</td>
-                                <td>Dibutuhkan seorang untuk menghibur mantan.</td>
-                                <td>Andy Mars</td>
-                                <td>James Brown</td>
-                                <td>
-                                    <a class="btn btn-primary btn-outline-success" href="#">Accept</a>
-                                    <a class="btn btn-primary btn-outline-danger" href="#">Decline</a>
-                                </td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

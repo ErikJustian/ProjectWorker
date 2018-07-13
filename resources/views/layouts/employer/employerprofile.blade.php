@@ -8,7 +8,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-2">
-        <img class="img-fluid d-block img-thumbnail" src="{{ asset('images/line.png') }}" style="width:400px; height:400px">
+        <img class="img-fluid d-block img-thumbnail" src="{{ asset('images/line.png') }}" width="400" height="400">
       </div>
       <div class="col-md-8">
         <div class="row">

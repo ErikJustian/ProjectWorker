@@ -2,3 +2,7 @@
     justify-content: center !important;
     margin-top: 10px;
 }
+
+#action_column {
+    width: 20%;
+}

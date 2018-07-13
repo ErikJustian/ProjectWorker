@@ -68,7 +68,11 @@ Route::group(['middleware' => ['auth']], function () {
             Route::get('/profile', 'ProfileController@indexEmployee')->name('employeeprofile');
             Route::post('refer', 'Employee\SearchController@referrenceJob')->name('employeerefer');
             Route::get('/referredjob', 'Employee\ReferredJobController@index')->name('referredjob');
+            Route::post('/referredjob/process', 'Employee\ReferredJobController@processReferrence')->name('process');
+
             Route::get('/employer/{id}', 'Employee\SearchController@viewProfile')->name('viewemployer');
+            Route::get('/jobtaken', 'Employee\JobTakenController@index')->name('jobtaken');
+            Route::post('/jobtaken/cancel', 'Employee\JobTakenController@cancelApply')->name('cancel');
         });
     });
     
