@@ -27,6 +27,14 @@ Route::prefix('admin')->group(function() {
         Route::get('', function() {
             return redirect('admin/dashboard');
         });
+
+        // Category
+        Route::get('category/data', 'Admin\CategoryController@data')->name('categorydata');
+        Route::resource('category', 'Admin\CategoryController')->except(['destroy']);
+        // Location
+        Route::get('location/data', 'Admin\LocationController@data')->name('locationdata');
+        Route::resource('location', 'Admin\LocationController')->except(['destroy']);
+
         Route::get('dashboard', 'Admin\LoginController@dashboard');
         Route::get('logout', 'Admin\LoginController@logout');
         // admin user manage

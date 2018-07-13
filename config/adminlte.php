@@ -108,6 +108,19 @@ return [
     */
 
     'menu' => [
+        'Set Up',
+        [
+            'text'        => 'Category',
+            'url'         => 'admin/category',
+            'icon'        => 'tags',
+            'label_color' => 'success',
+        ],
+        [
+            'text'        => 'Location',
+            'url'         => 'admin/location',
+            'icon'        => 'map-marker',
+            'label_color' => 'success',
+        ],
         'Employee',
         [
             'text'        => 'Employee user',
