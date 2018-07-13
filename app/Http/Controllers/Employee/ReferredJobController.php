@@ -42,7 +42,7 @@ class ReferredJobController extends Controller
             $referrence->save();
         }
         else {
-            $referrence->status = Refference::JOB_REQUEST_STATUS_REJECTED;
+            $referrence->status = Refference::REFERRENCE_STATUS_REJECTED;
             $referrence->save();
         }
 

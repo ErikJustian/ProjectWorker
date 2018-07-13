@@ -40,7 +40,7 @@ class ApplicantController extends Controller
         $jobtaken->job_id = $request->job_id;
         $jobtaken->employee = $request->employee_id;
         if($employeerequest->refferal_id != null) {
-            $jobtaken->referrer_id = $employeerequest->refferal_id;
+            $jobtaken->refferer_id = $employeerequest->refferal_id;
         }
         $jobtaken->complain = "";
         $jobtaken->rating = "0";

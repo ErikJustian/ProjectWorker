@@ -9,6 +9,8 @@ use Auth;
 // Models
 use App\Models\JobRequest;
 use App\Models\JobTaken;
+use App\Models\Employee;
+
 class PostedJobController extends Controller
 {
     public function index() {
@@ -33,7 +35,7 @@ class PostedJobController extends Controller
     public function end(Request $request) {
         $job = JobRequest::find($request->job_id);
         $job->status = JobRequest::JOB_REQUEST_STATUS_FINISHED;
-        $job->save();
+        // $job->save();
         $jobtaken = JobTaken::where('job_id', $request->job_id)->first();
         $jobtaken->status = JobRequest::JOB_REQUEST_STATUS_FINISHED;
         if($request->complain ==null) {
@@ -44,14 +46,21 @@ class PostedJobController extends Controller
         $jobtaken->rating = $request->stars;
         $jobtaken->save();
         $employee = $jobtaken->employeeDetail;
+        $employee->rating = $employee->rating + $request->stars;
         
         $multiplier = $employee->class->discount;
         $debt = $jobtaken->employeeDetail->deposit_tab;
         $salary = $job->salary;
 
-        $debt = $debt + ($salary * $multiplier);
+        $employee->deposit_tab = $debt + ($salary * $multiplier);
         $employee->success_job = $employee->success_job + 1;
+
         $employee->save();
+        if($jobtaken->refferer_id != null) {
+            $refferer = Employee::where('user_id', $jobtaken->refferer_id)->first();
+            $refferer->commission += ($salary * 0.04);
+            $refferer->save();
+        }
         return redirect()->back();        
     }
 
