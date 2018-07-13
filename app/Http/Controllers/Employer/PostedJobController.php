@@ -10,6 +10,7 @@ use Auth;
 use App\Models\JobRequest;
 use App\Models\JobTaken;
 use App\Models\Employee;
+use App\Models\Classes;
 
 class PostedJobController extends Controller
 {
@@ -35,7 +36,7 @@ class PostedJobController extends Controller
     public function end(Request $request) {
         $job = JobRequest::find($request->job_id);
         $job->status = JobRequest::JOB_REQUEST_STATUS_FINISHED;
-        // $job->save();
+        $job->save();
         $jobtaken = JobTaken::where('job_id', $request->job_id)->first();
         $jobtaken->status = JobRequest::JOB_REQUEST_STATUS_FINISHED;
         if($request->complain ==null) {
@@ -55,6 +56,10 @@ class PostedJobController extends Controller
         $employee->deposit_tab = $debt + ($salary * $multiplier);
         $employee->success_job = $employee->success_job + 1;
 
+        $class = Classes::find($employee->class_id);
+        if($employee->success_job > $class->successjob) {
+            $employee->class_id = Classes::where('successjob', '>', $employee->success_job)->first()->id;
+        }
         $employee->save();
         if($jobtaken->refferer_id != null) {
             $refferer = Employee::where('user_id', $jobtaken->refferer_id)->first();
