@@ -15,7 +15,7 @@
 
 <body>
     @section('navbar')
-        <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary">
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('images/logo.png') }}" width="145" height="35">
             </a>
@@ -25,20 +25,16 @@
             <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('employerprofile') }}">
                         <i class="fa fa-id-card"></i> &nbsp;Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('postedjob') }}">
                             <i class="fa fa-suitcase"></i> &nbsp;Job Posted</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('postjobform') }}">
                             <i class="fas fa-chalkboard-teacher"></i> &nbsp;Post a Job</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                        <i class="fas fa-user-tie"></i> &nbsp;Employee Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

@@ -15,7 +15,7 @@
 
 <body>
     @section('navbar')
-    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary">
         <a class="navbar-brand" href="#">
             <img src="{{ asset('images/logo.png') }}" width="145" height="35">
         </a>
@@ -25,12 +25,12 @@
         <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('employeeprofile') }}">
                     <i class="fas fa-id-card-alt"></i> &nbsp;Profile
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{ route('search') }}">
                     <i class="fa fa-search"></i> &nbsp;Find a Job
                     </a>
                 </li>
