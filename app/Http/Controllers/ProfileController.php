@@ -25,7 +25,12 @@ class ProfileController extends Controller
     public function indexEmployee() {
         $user= Auth::user();
         $profile['fullname'] = $user->employee->fullname;
-        $profile['rating'] = number_format($user->employee->rating / $user->employee->success_job, '2');
+        if($user->employee->success_job != 0) {
+            $profile['rating'] = number_format($user->employee->rating / $user->employee->success_job, '2');    
+        }
+        else {
+            $profile['rating'] = number_format(0, '2');
+        }
         $profile['phone'] = $user->employee->phone_number;
         $profile['email'] = $user->employee->email;
         $profile['gender'] = $user->employee->gender;

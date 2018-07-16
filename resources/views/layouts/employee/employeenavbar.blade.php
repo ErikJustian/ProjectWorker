@@ -12,32 +12,28 @@
 
 <body>
     @section('navbar')
-    <nav class="navbar navbar-expand-md bg-primary navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fa d-inline fa-lg fa-cloud"></i>
-                <b> CWorker
-                    <br> </b>
-            </a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">
-                            <i class="fa d-inline fa-lg fa-user-o"></i>Profile</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Find a Job</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Logout</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
-                    </li>
-                </ul>
-            </div>
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('images/logo.png') }}" width="145" height="35">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa d-inline fa-lg fa-user-o"></i>Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Find a Job</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                </li>
+            </ul>
         </div>
     </nav>
     @show
