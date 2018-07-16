@@ -78,38 +78,51 @@
       <div class="col-md-12">
         <h1 class="text-dark">Job Posted</h1>
         <div class="col-md-12">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Job Title</th>
-                <th>Status</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              <!-- List -->
-              @foreach($jobs as $job)
-              <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$job['title']}}</td>
-                <td>{{$job['status']}}</td>
-                <td class="">
-                  <!-- Button action -->
-                  @if($job['status'] == 'Awaiting Request')
-                  <button class="btn btn-primary" onclick="viewApplicant({{$job['id']}})">View Applicants </button>
-                  <button class="btn btn-primary btn-danger" onclick="cancelRequest({{$job['id']}})">Cancel</button>
-                  @elseif($job['status'] == 'Pending')
-                  <button class="btn btn-success" onclick="startJob({{$job['id']}})">Start</button>
-                  @else
-                  <button class="btn btn-success" data-target="#exampleModalCenter" data-toggle="modal" onclick='showModal({!!$job!!})'>End</button>
-                  @endif
-                </td>
-              </tr>
-              @endforeach
-              <!-- List end -->
-            </tbody>
-          </table>
+          <div class="table-responsive-md">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th>#</th>
+                  <th>Job Title</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                @if ($jobs->count() == 0)
+                <tr>
+                    <td>-</td>
+                    <td>No job title</td>
+                    <td>No status</td>
+                    <td>
+                      No Action
+                    </td>
+                  </tr>
+                @else
+                  <!-- List -->
+                  @foreach($jobs as $job)
+                  <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$job['title']}}</td>
+                    <td>{{$job['status']}}</td>
+                    <td class="">
+                      <!-- Button action -->
+                      @if($job['status'] == 'Awaiting Request')
+                      <button class="btn btn-primary" onclick="viewApplicant({{$job['id']}})">View Applicants </button>
+                      <button class="btn btn-primary btn-danger" onclick="cancelRequest({{$job['id']}})">Cancel</button>
+                      @elseif($job['status'] == 'Pending')
+                      <button class="btn btn-success" onclick="startJob({{$job['id']}})">Start</button>
+                      @else
+                      <button class="btn btn-success" data-target="#exampleModalCenter" data-toggle="modal" onclick='showModal({!!$job!!})'>End</button>
+                      @endif
+                    </td>
+                  </tr>
+                  @endforeach
+                  <!-- List end -->
+                @endif
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
