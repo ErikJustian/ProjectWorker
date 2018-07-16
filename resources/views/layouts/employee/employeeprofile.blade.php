@@ -18,7 +18,7 @@
             <div class="col-md-6">
               <div class="row">
                 <div class="col text-info" style="transition: all 0.25s;">
-                  <p class="lead text-info float-right"><i class="fa fa-map-marker"></i>&nbsp;Medan, Indonesia</p>
+                  <p class="lead text-info float-right"><i class="fas fa-map-marker-alt"></i>&nbsp;Medan, Indonesia</p>
                 </div>
               </div>
             </div>

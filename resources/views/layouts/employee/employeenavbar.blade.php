@@ -7,7 +7,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
     <link href="{{ asset('css/personal.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/solid.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/regular.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/brands.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/fontawesome.css') }}" type="text/css">
 </head>
 
 <body>
@@ -23,10 +26,13 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <i class="fa d-inline fa-lg fa-user-o"></i>Profile</a>
+                    <i class="fas fa-id-card-alt"></i> &nbsp;Profile
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Find a Job</a>
+                    <a class="nav-link" href="#">
+                    <i class="fa fa-search"></i> &nbsp;Find a Job
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

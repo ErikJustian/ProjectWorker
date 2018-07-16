@@ -11,3 +11,7 @@
     background-color: white;
     color: #12bbad;
 }
+
+.nav-item .nav-link:hover {
+    color: white;
+}

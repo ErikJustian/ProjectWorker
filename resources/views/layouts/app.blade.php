@@ -6,7 +6,10 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/theme.css') }}" rel="stylesheet">
     <link href="{{ asset('css/personal.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/icons/css/all.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/solid.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/regular.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/brands.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/icons/css/fontawesome.css') }}" type="text/css">
 </head>
 
 <body>
