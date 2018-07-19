@@ -101,5 +101,5 @@ Route::group(['middleware' => ['auth']], function () {
             Route::post('/applicants/decline', 'Employer\ApplicantController@declineApplicant');
         });
     });
-    Route::get('/home', 'HomeController@index')->name('home');
+    
 });

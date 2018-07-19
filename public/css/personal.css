@@ -7,7 +7,7 @@
     width: 20%;
 }
 
-.navbar .navbar-collapse .navbar-btn:hover{
+.navbar .navbar-collapse .navbar-btn:hover, .navbar .navbar-collapse .navbar-btn:active{
     background-color: white;
     color: #12bbad;
 }
