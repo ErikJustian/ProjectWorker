@@ -7,46 +7,45 @@
             <div class="container py-5">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="display-3 mb-4 text-primary">Join Us Today</h1>
-                        <p class="lead mb-5">The Best Place to Find Worker</p>
+                        <h1 class="display-3 mb-4 text-primary" style="font-weight:400">Join Us Today</h1>
+                        <p class="lead mb-5" style="font-weight:400">The Best Place to Find Worker</p>
                         <a href="#" class="btn btn-lg btn-success">Join Now</a>
-                        <p class="lead mb-0">Or</p>
+                        <p class="lead mb-0" style="font-weight:400">Or</p>
                         <a href="#" class="btn btn-lg btn-danger">Sign In</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="py-5 text-center bg-secondary">
+        <div class="py-5 text-center" style="background-color:  #495057;">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="text-light">Why Us</h1>
-                                <p class="text-light">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                                    laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                                    non proident, sunt in culpa qui officia deserunt.</p>
+                                <p class="text-light">You want to work casually? Just join us. CEmployer will provide you a place to 
+                                find a casual job faster and better. You can apply and work directly. You can choose your own 
+                                employer. All you have to do is come to our office and apply as an employee
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="py-5" style="background-image: url('/images/business.jpg');background-position:center center;background-size:cover;background-repeat:no-repeat;">
+        <div class="py-5" style="background-image: url('https://content-static.upwork.com/blog/uploads/sites/3/2016/11/09112036/Hiring-Guide_content-writing-job-description_h.jpg');background-size:cover;background-repeat:no-repeat;">
             <div class="container">
                 <div class="row mb-5">
                     <div class="col-md-7">
-                        <h2 class="text-primary">Article subtitle #1</h2>
-                        <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                            ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore
-                            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                            deserunt mollit anim id est laborum. </p>
+                        <h2 class="text-white" style="font-weight:  400;text-align:  justify;">Need a job?</h2>
+                        <p class="text-white" style="font-weight:  400;text-align:  justify;">
+                            You want to work casually? Just join us. C'Employer will provide you a place to 
+                            find a casual job faster and better. You can apply and work directly. You can choose your own 
+                            employer. All you have to do is come to our office and apply as an employee
+                        </p>
                     </div>
                     <div class="col-md-5 align-self-center">
-                        <img class="img-fluid d-block w-100 img-thumbnail" src="https://pingendo.github.io/templates/sections/assets/gallery_9.jpg"> </div>
+                        <img class="img-fluid" src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Iris_Gr%C3%A4%C3%9Fler.jpg"> </div>
                 </div>
             </div>
         </div>
