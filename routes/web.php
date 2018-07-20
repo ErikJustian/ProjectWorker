@@ -88,6 +88,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::middleware(['employer'])->group(function () {
         Route::prefix('employer')->group(function () {
             Route::get('/profile', 'ProfileController@indexEmployer')->name('employerprofile');
+            Route::get('/editprofile', 'Employer\EditProfileController@index')->name('editemployerprofile');
             Route::get('/applicants/{id}', 'Employer\ApplicantController@index')->name('applicantlist');
             Route::get('/postjob', 'Employer\PostJobController@index')->name('postjobform');
             Route::post('/postjob', 'Employer\PostJobController@post')->name('postjob');
