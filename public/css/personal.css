@@ -12,6 +12,10 @@
     color: #12bbad;
 }
 
-.nav-item .nav-link:hover {
+.navbar .navbar-collapse .nav-item .nav-link:hover {
     color: white;
+}
+
+.navbar {
+    min-height: 10vh;
 }

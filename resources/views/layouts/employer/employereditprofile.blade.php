@@ -66,13 +66,13 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="mt-4 d-flex justify-content-center">
-                                <button type="submit" class="mr-1 btn btn-primary">Save Changes</button>
-                                <button type="button" class="ml-1 btn btn-danger" onclick="window.location.reload()">Cancel</button>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="mt-4 d-flex justify-content-end">
+                                        <button type="submit" class="mr-1 btn btn-primary">Save Changes</button>
+                                        <button type="button" class="ml-1 btn btn-danger" onclick="window.location.reload()">Cancel</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

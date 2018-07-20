@@ -1,7 +1,7 @@
 
 @extends('layouts.employer.employernavbar')
 
-@section('title', 'Page Title')
+@section('title', 'Profile')
 
 @section('content')
 <div class="py-5">
@@ -13,7 +13,12 @@
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-6">
-            <h1 class="">{{$name}}</h1>
+            <h1>
+              {{$name}} 
+              <button type="button" class="btn btn-outline-primary btn-sm">
+                <i class="far fa-edit"></i>&nbsp; Edit Profile
+              </button>
+            </h1>
           </div>
           <div class="col-md-6">
             <div class="row">
@@ -25,7 +30,13 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <p class="lead text-primary">Company Profile</p>
+            <p class="lead text-primary">
+              @if ($type == "Individual")
+                Description
+              @else
+                Company Profile
+              @endif
+            </p>
           </div>
         </div>
         <div class="row">

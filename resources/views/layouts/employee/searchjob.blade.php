@@ -48,6 +48,102 @@
         @endif
         <!-- Filter -->
         <div class="row">
+            <div class="col">
+                <h1 class="text-primary">Promoted Jobs</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="list-group">
+                @if (count($promotedjobs) == 0)
+                    <h5 class="text-center">No promoted jobs to display</h5>
+                @else
+                    @foreach($promotedjobs as $job)
+                        <!-- List -->
+                        <a class="mt-2 list-group-item list-group-item-action flex-column align-items-start">
+                            <div class="mt-1 d-flex w-100 justify-content-between">
+                                <h4 class="lead text-primary" style="font-weight:bold;">
+                                    {{$job['title']}} &nbsp; 
+                                    <span class="badge badge-primary">Promoted</span>
+                                </h4>
+                                <small>
+                                    @php
+                                    $date = new Carbon\Carbon($job->created_at);
+                                    $now = Carbon\Carbon::now();
+                                    echo $date->diffForHumans($now);
+                                    @endphp
+                                </small>
+                            </div>
+                            <hr class="mt-1">
+                            <p>{{$job['detail']}}</p>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-1">Employer: </h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h6> {{$job['user']['name']}} </h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-1">Requirements: </h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h6> {{$job['requirement']}}</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-1">Duration: </h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h6> 2 hrs </h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-1">Due Date: </h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h6>{{$job['due_date']}}</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <h6 class="mb-1">Category: </h6>
+                                </div>
+                                <div class="col-sm-9">
+                                    <h6 class="mb-3"> {{$job['category']['category_name']}} </h6>
+                                </div>
+                            </div>
+                            <hr class="mt-1 mb-1">
+                            <div class="d-flex justify-content-between">
+                                <h5 class="mt-1 mb-1 lead text-primary">IDR {{number_format($job['salary'], 2)}}</h5>
+                                <button class="ml-auto btn btn-success" onClick="requestJob({{$job['id']}})">Request</button>
+                                <button class="ml-1 btn btn-dark" data-target="#exampleModalCenter" data-toggle="modal" onclick='showModal({!!$job!!})' > Refer to </button>
+                                <button class="ml-1 btn btn-primary" onclick='viewProfile({{$job}})'> View Profile </button>
+                            </div>
+                        </a>
+                    @endforeach
+                @endif
+                </div>
+            </div>
+        </div>
+        <!-- Lists end -->
+        <div class="row mt-1 mb-2">
+            <div class="col-6 m-auto">
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <h1 class="text-primary">Job List</h1>
+                <hr>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <div class="form-group">
                     <select class="form-control" id="category" name="category" onchange="changeCategory(this)">
@@ -86,8 +182,19 @@
                     <!-- List -->
                     <a class="mt-2 list-group-item list-group-item-action flex-column align-items-start">
                         <div class="mt-1 d-flex w-100 justify-content-between">
-                            <h4 class="lead text-primary" style="font-weight:bold;">{{$job['title']}}</h4>
-                            <small>3 days ago</small>
+                            <h4 class="lead text-primary" style="font-weight:bold;">
+                                {{$job['title']}} &nbsp;
+                                @if($job->promoted == true)
+                                    <span class="badge badge-primary">Promoted</span>   
+                                @endif
+                            </h4>
+                            <small>
+                                @php
+                                $date = new Carbon\Carbon($job->created_at);
+                                $now = Carbon\Carbon::now();
+                                echo $date->diffForHumans($now);
+                                @endphp
+                            </small>
                         </div>
                         <hr class="mt-1">
                         <p>{{$job['detail']}}</p>

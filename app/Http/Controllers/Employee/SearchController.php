@@ -23,9 +23,13 @@ class SearchController extends Controller
         if($request->query('location')) {
             $job = $job->where('location_id', $request->query('location'));
         }
-        $job = $job->where('status',JobRequest::JOB_REQUEST_STATUS_AWAITING)
-        ->paginate(2);
+
+        $job = $job->where('status',JobRequest::JOB_REQUEST_STATUS_AWAITING)->paginate(2);
+        $promotedjobs = JobRequest::where('status', JobRequest::JOB_REQUEST_STATUS_AWAITING)
+            ->where('promoted', true)->limit(5)->get();
+
         $job->load(['category', 'user']);
+        $data['promotedjobs'] = $promotedjobs;
         $data['jobs'] = $job;
         // Untuk tarek data location
         $location = Location::all();
@@ -33,6 +37,7 @@ class SearchController extends Controller
         // Untuk tarek data category
         $category = Category::all();
         $data['categories'] = $category;
+
         return view('layouts.employee.searchjob', $data);
     }
     // Untuk mengambil job
