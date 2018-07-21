@@ -14,8 +14,9 @@
         </div>
         <div class="row">
             <div class="col">
-                <form action="#" class="needs-validation" novalidate>
+                <form action="{{route('submitemployerprofile')}}" method="POST" class="needs-validation" novalidate>
                     <div class="row">
+                    @csrf
                         <div class="col-md-4 mb-2">
                             <img class="mr-auto ml-auto img-fluid d-block img-thumbnail" src="{{ asset('images/line.png') }}" width="400" height="400">
                             <div class="mt-1 mb-2 custom-file">
@@ -27,7 +28,7 @@
                             <div class="form-group row">
                                 <label for="inputFullName" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputFullName" placeholder="Enter Full Name" required>
+                                    <input type="text" class="form-control" name="fullname" id="inputFullName" value="{{$name}}" placeholder="Enter Full Name" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -39,13 +40,15 @@
                             <div class="form-group row">
                                 <label for="inputDetails" class="col-sm-2 col-form-label">Company Profile</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="inputDetails" placeholder="Enter short description"></textarea>
+                                    <textarea class="form-control" id="inputDetails" name="detail" placeholder="Enter short description">
+                                        {{$detail}}
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="inputPhone" class="col-sm-2 col-form-label">Phone</label>
                                 <div class="col-sm-10">
-                                    <input type="tel" class="form-control" id="inputPhone" placeholder="Enter Phone Number" required>
+                                    <input type="tel" class="form-control" value="{{$phone_number}}" id="inputPhone" name="phone_number" placeholder="Enter Phone Number" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
@@ -57,7 +60,7 @@
                             <div class="form-group row">
                                 <label for="inputAddress" class="col-sm-2 col-form-label">Address</label>
                                 <div class="col-sm-10">
-                                    <input type="text" class="form-control" id="inputAddress" placeholder="Enter Address" required>
+                                    <input type="text" class="form-control" id="inputAddress" name="address" placeholder="Enter Address" value="{{$address}}" required>
                                     <div class="valid-feedback">
                                         Looks good!
                                     </div>
