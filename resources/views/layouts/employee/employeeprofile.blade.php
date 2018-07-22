@@ -40,6 +40,22 @@
           </div>
         </div>
         <div class="row">
+          <div class="col-md-6">
+            <p class="lead" style="color:green;">Commission</p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead" style="color:red;">Dividend</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <p class="lead"> IDR {{ $commission }} </p>
+          </div>
+          <div class="col-md-6">
+            <p class="lead"> IDR {{ $deposit_tab }} </p>
+          </div>
+        </div>
+        <div class="row">
           <div class="col-md-12">
           <hr>
             <div class="container">

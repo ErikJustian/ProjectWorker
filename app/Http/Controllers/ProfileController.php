@@ -37,6 +37,8 @@ class ProfileController extends Controller
         $profile['gender'] = $user->employee->gender;
         $profile['address'] = $user->employee->address;
         $profile['birthdate'] = $user->employee->birthdate;
+        $profile['commission'] = number_format($user->employee->commission, 2);
+        $profile['deposit_tab'] = number_format($user->employee->deposit_tab, 2);
         
         // Referral badge (must have in all related pages)
         $profile['referral_count'] = Refference::where('refferal_id', Auth::user()->id)

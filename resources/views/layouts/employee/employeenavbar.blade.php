@@ -26,23 +26,23 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('employeeprofile') }}">
-                    <i class="fas fa-id-card-alt"></i> &nbsp;Profile
+                    <i class="fas fa-id-card-alt"></i> &nbsp;<b>Profile</b>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('search') }}">
-                    <i class="fa fa-search"></i> &nbsp;Find a Job
+                    <i class="fa fa-search"></i> &nbsp;<b>Find a Job</b>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('jobtaken') }}">
-                    <i class="fas fa-history"></i> &nbsp;Job Taken
+                    <i class="fas fa-history"></i> &nbsp;<b>Job Taken</b>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('referredjob') }}">
                         <i class="fas fa-hands-helping"></i>
-                        Referred Jobs 
+                        <b>Referred Jobs</b> 
                         @if ($referral_count > 0)
                             <span class="badge badge-pill badge-secondary" style="vertical-align:top;">
                                 {{ $referral_count }}
@@ -52,7 +52,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        Logout</a>
+                        <b>Logout</b></a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                 </li>
             </ul>

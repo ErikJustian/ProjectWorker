@@ -26,19 +26,19 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('employerprofile') }}">
-                        <i class="fa fa-id-card"></i> &nbsp;Profile</a>
+                        <i class="fa fa-id-card"></i> &nbsp;<b>Profile</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('postedjob') }}">
-                            <i class="fa fa-suitcase"></i> &nbsp;Job Posted</a>
+                            <i class="fa fa-suitcase"></i> &nbsp;<b>Job Posted</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('postjobform') }}">
-                            <i class="fas fa-chalkboard-teacher"></i> &nbsp;Post a Job</a>
+                            <i class="fas fa-chalkboard-teacher"></i> &nbsp;<b>Post a Job</b></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link"  href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                            Logout</a>
+                            <b>Logout</b></a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
                     </li>
                 </ul>
