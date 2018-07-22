@@ -56,7 +56,7 @@ class SearchController extends Controller
         }
         $employee_request->status = JobRequest::JOB_REQUEST_STATUS_AWAITING;
         $employee_request->save();
-        return redirect()->route('employeeprofile');
+        return redirect()->route('search')->with('requestStatus', 'Job Request Sent!');
     }
     // Untuk reference job
     public function referrenceJob(Request $request) {
@@ -72,7 +72,7 @@ class SearchController extends Controller
         $refference->refferal_id = $refferal->id;
         $refference->status = 'Pending';
         $refference->save();
-        return redirect()->back()->with('status', 'Referrence Send!');
+        return redirect()->back()->with('status', 'Referrence Sent!');
     }
 
     public function viewProfile($id) {
