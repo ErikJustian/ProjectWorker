@@ -37,6 +37,7 @@ class ProfileController extends Controller
         $profile['gender'] = $user->employee->gender;
         $profile['address'] = $user->employee->address;
         $profile['birthdate'] = $user->employee->birthdate;
+        $profile['level'] = $user->employee->class->class_name;
         $profile['commission'] = number_format($user->employee->commission, 2);
         $profile['deposit_tab'] = number_format($user->employee->deposit_tab, 2);
         

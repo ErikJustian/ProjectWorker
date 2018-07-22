@@ -26,7 +26,7 @@
         </div>
         <div class="row">
           <div class="col-md-12">
-            <p class="lead text-primary">Experienced Worker</p>
+            <p class="lead text-primary">{{$level}}</p>
           </div>
         </div>
         <div class="row">
