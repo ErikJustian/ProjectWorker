@@ -14,9 +14,9 @@
           <div class="col-md-6">
             <h1>
               {{$name}}
-              <button type="button" class="btn btn-outline-primary btn-sm">
+              <a type="button" class="btn btn-outline-primary btn-sm" href="{{ route('editemployerprofile') }}">
                 <i class="far fa-edit"></i>&nbsp; Edit Profile
-              </button>
+              </a>
             </h1>
           </div>
           <div class="col-md-6">

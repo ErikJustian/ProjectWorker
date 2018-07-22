@@ -4,16 +4,25 @@
 @section('title', 'Page Title')
 
 @section('content')
-@if (session('status'))
-    <div class="alert alert-success">
-        {{ session('status') }}
-    </div>
-@endif
+
 <div class="py-5 text-dark" >
     <div class="container">
       <div class="row">
-        <div class="col-md-12">
-          <h1 class="text-dark">Post a Job</h1>
+        <div class="col">
+          @if (session('status'))
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+              <strong>{{ session('status') }}</strong>
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          @endif
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h1 class="text-primary text-center">Post a Job</h1>
+          <hr>
           <form method='POST' action='postjob'>
             @csrf
             <!-- Title -->

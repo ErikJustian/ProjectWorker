@@ -12,6 +12,10 @@
     color: #12bbad;
 }
 
+.navbar .navbar-collapse .nav-item a {
+    color: #008080;
+}
+
 .navbar .navbar-collapse .nav-item .nav-link:hover {
     color: white;
 }
