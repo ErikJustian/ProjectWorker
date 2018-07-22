@@ -13,22 +13,26 @@ class ClassTableSeeder extends Seeder
     {
         DB::table('class')->insert([
             'successjob' => '50',
-            'discount' => '0.10'
+            'discount' => '0.10',
+            'class_name' => 'Amateur'
         ]);
 
         DB::table('class')->insert([
             'successjob' => '100',
-            'discount' => '0.20'
+            'discount' => '0.20',
+            'class_name' => 'Regular'
         ]);
 
         DB::table('class')->insert([
             'successjob' => '150',
-            'discount' => '0.30'
+            'discount' => '0.30',
+            'class_name' => 'Experienced'
         ]);
 
         DB::table('class')->insert([
             'successjob' => '200',
-            'discount' => '0.40'
+            'discount' => '0.40',
+            'class_name' => 'Master'
         ]);
     }
 }

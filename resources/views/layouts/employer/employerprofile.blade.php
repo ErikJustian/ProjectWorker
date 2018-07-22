@@ -7,13 +7,13 @@
   <div class="container">
     <div class="row">
       <div class="col-md-4 mb-2">
-        <img class="img-fluid d-block img-thumbnail" src="{{ asset('images/line.png') }}" width="400" height="400">
+        <img class="img-fluid d-block img-thumbnail" src="{{ asset('images/exemafia.jpg') }}" width="400" height="400">
       </div>
       <div class="col-md-8">
         <div class="row">
           <div class="col-md-6">
             <h1>
-              {{$name}}
+              {{$name}} <br>
               <a type="button" class="btn btn-outline-primary btn-sm" href="{{ route('editemployerprofile') }}">
                 <i class="far fa-edit"></i>&nbsp; Edit Profile
               </a>

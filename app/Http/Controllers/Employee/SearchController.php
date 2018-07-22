@@ -85,6 +85,12 @@ class SearchController extends Controller
         $profile['detail'] = $user->employer->detail;
         $profile['phone_number'] = $user->employer->phone_number;
         $profile['address'] = $user->employer->address;
+
+        // Referral badge (must have in all related pages)
+        $profile['referral_count'] = Refference::where('refferal_id', Auth::user()->id)
+                                    ->where('status', Refference::REFERRENCE_STATUS_PENDING)
+                                    ->get()
+                                    ->count();
         return view('layouts.employee.viewemployer', $profile);
     }
 }

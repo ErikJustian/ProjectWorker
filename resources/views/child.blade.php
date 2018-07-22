@@ -9,9 +9,9 @@
                     <div class="col-md-12">
                         <h1 class="display-3 mb-4 text-primary" style="font-weight:400">Join Us Today</h1>
                         <p class="lead mb-5" style="font-weight:400">The Best Place to Find Worker</p>
-                        <a href="#" class="btn btn-lg btn-success">Join Now</a>
+                        <a class="btn btn-lg btn-primary" href="{{ route('register') }}">Join Now</a>
                         <p class="lead mb-0" style="font-weight:400">Or</p>
-                        <a href="#" class="btn btn-lg btn-danger">Sign In</a>
+                        <a class="btn btn-lg btn-success" href="{{ route('login') }}">Sign In</a>
                     </div>
                 </div>
             </div>

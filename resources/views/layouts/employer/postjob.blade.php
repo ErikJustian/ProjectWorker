@@ -72,6 +72,14 @@
               <label for="detail" class="text-dark">Detail</label>
               <textarea class="form-control" id="detail" name="detail" rows="3" placeholder="Your job offer description and address"></textarea>
             </div>
+            <div class="form-group">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <label class="form-check-label" for="defaultCheck1">
+                  Promoted
+                </label>
+              </div>
+            </div>
             <button type="submit" class="btn btn-secondary">Post</button>
           </form>
         </div>
