@@ -76,7 +76,7 @@ class SearchController extends Controller
     }
 
     public function viewProfile($id) {
-        $user = User::find($id)->first();
+        $user = User::find($id);
         $profile['username'] = $user->username;
         $profile['role'] = $user->role;
         $profile['type'] = $user->employer->type;
