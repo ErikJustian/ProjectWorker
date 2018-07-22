@@ -76,21 +76,27 @@
     <!-- Modal End -->
     <div class="row">
       <div class="col-md-12">
-        <h1 class="text-dark">Job Posted</h1>
-        <div class="col-md-12">
-          <div class="table-responsive-md">
-            <table class="table">
-              <thead class="thead-dark">
-                <tr>
-                  <th>#</th>
-                  <th>Job Title</th>
-                  <th>Status</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                @if ($jobs->count() == 0)
-                <tr>
+        <div class="row">
+          <div class="col">
+            <h1 class="text-primary text-center">Job Posted</h1>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="table-responsive-md">
+              <table class="table">
+                <thead class="thead-dark">
+                  <tr>
+                    <th>#</th>
+                    <th>Job Title</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  @if ($jobs->count() == 0)
+                  <tr>
                     <td>-</td>
                     <td>No job title</td>
                     <td>No status</td>
@@ -98,7 +104,7 @@
                       No Action
                     </td>
                   </tr>
-                @else
+                  @else
                   <!-- List -->
                   @foreach($jobs as $job)
                   <tr>
@@ -119,9 +125,10 @@
                   </tr>
                   @endforeach
                   <!-- List end -->
-                @endif
-              </tbody>
-            </table>
+                  @endif
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>
