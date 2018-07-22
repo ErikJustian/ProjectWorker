@@ -60,6 +60,11 @@ class SearchController extends Controller
     }
     // Untuk reference job
     public function referrenceJob(Request $request) {
+        if(Auth::user()->username == $request->username) {
+            $errors['username'] =  'You may not refer yourself!';
+            return redirect()->back()
+            ->withErrors($errors);    
+        }
         $refferal = User::where('username', $request->username)->where('role', 'Employee')->first();
         if($refferal==null){
             $errors['username'] =  'No such username!';
