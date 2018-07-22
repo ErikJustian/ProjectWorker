@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Auth;
 use App\Models\User;
 use App\Models\Employer;
+use App\Models\Refference;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
@@ -36,6 +37,12 @@ class ProfileController extends Controller
         $profile['gender'] = $user->employee->gender;
         $profile['address'] = $user->employee->address;
         $profile['birthdate'] = $user->employee->birthdate;
+        
+        // Referral badge (must have in all related pages)
+        $profile['referral_count'] = Refference::where('refferal_id', Auth::user()->id)
+                                    ->where('status', Refference::REFERRENCE_STATUS_PENDING)
+                                    ->get()
+                                    ->count();
 
         return view('layouts.employee.employeeprofile', $profile);
     }

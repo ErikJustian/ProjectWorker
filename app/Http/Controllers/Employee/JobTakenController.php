@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\JobRequest;
 use App\Models\JobTaken;
 use App\Models\EmployeeRequest;
+use App\Models\Refference;
+use Auth;
 
 class JobTakenController extends Controller
 {
@@ -31,7 +33,13 @@ class JobTakenController extends Controller
         ->where('job_requests.status', '<>', 'Cancelled')
         ->get();
 
-        return view('layouts.employee.jobtaken', ['jobs' => $jobs_request]);
+        // Referral badge (must have in all related pages)
+        $referral_count = Refference::where('refferal_id', Auth::user()->id)
+                            ->where('status', Refference::REFERRENCE_STATUS_PENDING)
+                            ->get()
+                            ->count();
+
+        return view('layouts.employee.jobtaken', ['jobs' => $jobs_request, 'referral_count'=> $referral_count]);
     }
 
     public function cancelApply(Request $request) {

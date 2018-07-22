@@ -38,6 +38,12 @@ class SearchController extends Controller
         $category = Category::all();
         $data['categories'] = $category;
 
+        // Referral badge (must have in all related pages)
+        $data['referral_count'] = Refference::where('refferal_id', Auth::user()->id)
+                                    ->where('status', Refference::REFERRENCE_STATUS_PENDING)
+                                    ->get()
+                                    ->count();
+
         return view('layouts.employee.searchjob', $data);
     }
     // Untuk mengambil job

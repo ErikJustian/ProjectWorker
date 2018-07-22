@@ -16,8 +16,8 @@ class ReferredJobController extends Controller
         $referrences = Refference::where('refferal_id', Auth::user()->id)
                                     ->where('status', Refference::REFERRENCE_STATUS_PENDING)
                                     ->get();
-
-        return view('layouts.employee.referredjoblist', ['referrences' => $referrences]);
+        $referral_count = $referrences->count();
+        return view('layouts.employee.referredjoblist', ['referrences' => $referrences, 'referral_count' => $referral_count]);
     }
 
     public function processReferrence(Request $request){
