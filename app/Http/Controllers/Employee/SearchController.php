@@ -24,7 +24,7 @@ class SearchController extends Controller
             $job = $job->where('location_id', $request->query('location'));
         }
 
-        $job = $job->where('status',JobRequest::JOB_REQUEST_STATUS_AWAITING)->paginate(2);
+        $job = $job->where('status',JobRequest::JOB_REQUEST_STATUS_AWAITING)->paginate(5);
         $promotedjobs = JobRequest::where('status', JobRequest::JOB_REQUEST_STATUS_AWAITING)
             ->where('promoted', true)->limit(5)->get();
 

@@ -135,8 +135,7 @@
                         <label for="detail" class="col-md-4 col-form-label text-md-right">{{ __('Detail') }}</label>
                         <div class="col-md-6">
                             <textarea id="detail" class="form-control{{ $errors->has('detail') ? ' is-invalid' : '' }}" name="detail" value="{{ old('detail') }}"
-                                required autofocus>
-                            </textarea>
+                                required autofocus></textarea>
                             @if ($errors->has('detail'))
                             <span class="invalid-feedback">
                                 <strong>{{ $errors->first('detail') }}</strong>

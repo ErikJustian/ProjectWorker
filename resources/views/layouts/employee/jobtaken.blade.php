@@ -1,9 +1,4 @@
-
-@extends('layouts.employee.employeenavbar')
-
-@section('title', 'Job Taken')
-
-@section('content')
+ @extends('layouts.employee.employeenavbar') @section('title', 'Job Taken') @section('content')
 <div class="py-5">
   <div class="container">
     <div class="row">
@@ -31,7 +26,20 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($jobs as $job)
+                  @if ($jobs->count() == 0)
+                  <tr>
+                    <td>-</td>
+                    <td>No job title</td>
+                    <td>No job detail</td>
+                    <td>No employer</td>
+                    <td>No contact number</td>
+                    <td>No status</td>
+                    <td>No due date</td>
+                    <td>
+                      No Action
+                    </td>
+                  </tr>
+                  @else @foreach ($jobs as $job)
                   <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $job->title }}</td>
@@ -55,7 +63,7 @@
                       </form>
                     </td>
                   </tr>
-                  @endforeach
+                  @endforeach @endif
                 </tbody>
               </table>
             </div>
@@ -65,11 +73,8 @@
     </div>
   </div>
 </div>
-@endsection
-@push('scripts')
+@endsection @push('scripts')
 <script>
-$(document).ready(function() {
-});
+  $(document).ready(function () {});
 </script>
 @endpush
-

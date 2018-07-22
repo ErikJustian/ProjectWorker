@@ -40,9 +40,7 @@
                             <div class="form-group row">
                                 <label for="inputDetails" class="col-sm-2 col-form-label">Company Profile</label>
                                 <div class="col-sm-10">
-                                    <textarea class="form-control" id="inputDetails" name="detail" placeholder="Enter short description">
-                                        {{$detail}}
-                                    </textarea>
+                                    <textarea class="form-control" id="inputDetails" name="detail" placeholder="Enter short description" rows="3">{{$detail}}</textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
