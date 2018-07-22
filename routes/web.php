@@ -10,8 +10,16 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
+     if(Auth::check()) {
+         if(Auth::user()->role == "Employee") {
+            return redirect()->route('employeeprofile');
+         } else if (Auth::user()->role == "Employer") {
+            return redirect()->route('employerprofile');
+         } else {
+             return redirect('admin/dashboard');
+         }
+     }
     return view('child');
 });
 

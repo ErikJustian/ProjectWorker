@@ -23,9 +23,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h1 class="text-light">Why Us</h1>
-                                <p class="text-light">You want to work casually? Just join us. CEmployer will provide you a place to 
-                                find a casual job faster and better. You can apply and work directly. You can choose your own 
-                                employer. All you have to do is come to our office and apply as an employee
+                                <p class="text-light">We provide you with top quality worker. The worker will be working according to your desire. Just post a job, wait the request, and choose the worker you want.
+                                    The worker is interviewed and background checked by our Human Resource Department. Just choose the worker you desire.
                                 </p>
                             </div>
                         </div>
@@ -55,11 +54,11 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-12">
-                                <h1 class="text-light">Be a Worker</h1>
-                                <p class="text-light">Become a worker and earn money when you have time !</p>
+                                <h1 class="text-light">Be a Employee</h1>
+                                <p class="text-light">Become a employee and earn money when you have time !</p>
                             </div>
                         </div>
-                        <a href="#" class="btn btn-lg btn-success">Be a Worker
+                        <a href="#" class="btn btn-lg btn-success">Be a employee
                             <br> </a>
                     </div>
                 </div>

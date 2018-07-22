@@ -73,7 +73,7 @@ class PostedJobController extends Controller
         $job = JobRequest::find($request->job_id);
         $job->status = JobRequest::JOB_REQUEST_STATUS_ON_PROCESS;
         $job->save();
-        $jobtaken = JobTaken::where('job_id', $request->job_id->first());
+        $jobtaken = JobTaken::where('job_id', $request->job_id)->first();
         $jobtaken->status = JobRequest::JOB_REQUEST_STATUS_ON_PROCESS;
         $jobtaken->save();
         return redirect()->back();
